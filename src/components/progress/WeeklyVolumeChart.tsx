@@ -19,7 +19,7 @@ export function WeeklyVolumeChart() {
   return (
     <div>
       <ResponsiveContainer width="100%" height={200}>
-        <ComposedChart data={points} margin={{ top: 4, right: 4, bottom: 0, left: -20 }}>
+        <ComposedChart data={points} margin={{ top: 4, right: 4, bottom: 0, left: -4 }}>
           <CartesianGrid strokeDasharray="3 3" className="stroke-slate-200 dark:stroke-slate-800" vertical={false} />
           <XAxis
             dataKey="label"

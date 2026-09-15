@@ -11,7 +11,7 @@ function trainDaysOf(profile: { slots?: { day: number }[]; trainDays: number[] }
 const DOT_CLASSES = {
   done: 'bg-emerald-500 dark:bg-emerald-500',
   missed: 'bg-slate-300 dark:bg-slate-700',
-  rest: 'bg-slate-100 dark:bg-slate-900',
+  rest: 'bg-slate-200/70 dark:bg-slate-800/70',
 } as const
 
 export function ConsistencySection() {
@@ -38,7 +38,7 @@ export function ConsistencySection() {
           <span
             key={dot.date}
             title={dot.date}
-            className={`aspect-square rounded-[4px] ${DOT_CLASSES[dot.kind]}`}
+            className={`aspect-square max-h-8 rounded-md ${DOT_CLASSES[dot.kind]}`}
           />
         ))}
       </div>

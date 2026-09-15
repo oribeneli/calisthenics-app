@@ -43,7 +43,7 @@ export function BodyWeightSection() {
       </p>
 
       <ResponsiveContainer width="100%" height={190} className="mt-2">
-        <ComposedChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: -24 }}>
+        <ComposedChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: 4 }}>
           <CartesianGrid strokeDasharray="3 3" className="stroke-slate-200 dark:stroke-slate-800" vertical={false} />
           <XAxis
             dataKey="label"

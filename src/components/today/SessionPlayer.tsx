@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import { finishSession, logSet, setHardStop } from '../../app/coach'
 import { getLadder, getLevel, nextLevel as nextProgramLevel, prevLevel as prevProgramLevel, program } from '../../data/program.ts'
@@ -77,11 +77,13 @@ export function SessionPlayer({ session, onSessionFinished }: { session: Session
   const [tooHardOpen, setTooHardOpen] = useState(false)
   const [hardStopOpen, setHardStopOpen] = useState(false)
   const [endEarlyOpen, setEndEarlyOpen] = useState(false)
-  const initialized = useRef(false)
+  // State, not a ref: when the initial position equals the default state React bails out of
+  // the re-render, so a ref-based guard would leave the player stuck rendering null.
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    if (initialized.current || logs === undefined) return
-    initialized.current = true
+    if (ready || logs === undefined) return
+    setReady(true)
     if (logs.length === 0) {
       setPhase('warmup')
       setExerciseIndex(0)
@@ -93,7 +95,7 @@ export function SessionPlayer({ session, onSessionFinished }: { session: Session
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logs])
 
-  if (logs === undefined || !initialized.current) return null
+  if (logs === undefined || !ready) return null
 
   const current: PlannedExercise | undefined = plan.exercises[exerciseIndex]
   const logsForCurrent = current ? logs.filter((l) => l.ladderId === current.ladderId) : []

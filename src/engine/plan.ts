@@ -270,7 +270,11 @@ export function planToday(input: PlanInput): PlanOutput {
   const doneToday = input.sessions.some((s) => s.date === input.today && s.kind !== 'rest' && s.status !== 'skipped')
   if (doneToday) return { ...base, kind: 'done', explanation: 'Today is logged; the next session is on your next training day' }
 
-  if (!input.trainDays.includes(weekday(input.today))) {
+  const stateFor = (id: PatternId) => input.states.find((s) => s.ladderId === id)
+  const assessment = input.program.ladders.some((l) => !stateFor(l.id))
+
+  // The find-your-level session can happen on any day; rest days only exist once levels are set.
+  if (!assessment && !input.trainDays.includes(weekday(input.today))) {
     return { ...base, explanation: 'Rest day: five minutes of easy mobility and the habit checkboxes are the whole job today' }
   }
 
@@ -288,9 +292,6 @@ export function planToday(input: PlanInput): PlanOutput {
     rescreen: false,
     notes: [],
   }
-
-  const stateFor = (id: PatternId) => input.states.find((s) => s.ladderId === id)
-  const assessment = input.program.ladders.some((l) => !stateFor(l.id))
 
   // Precedence: MISS > DELOAD > SORENESS > SLEEP > MOOD.
   if (!assessment) {
@@ -315,11 +316,11 @@ export function planToday(input: PlanInput): PlanOutput {
 
   let explanation: string
   if (assessment) {
-    explanation = `Week 0 is about finding your starting level: one easy set of each pattern, stepping up only when a level felt easy`
+    explanation = `Your first week is about finding your starting level: one easy set of each pattern, stepping up only when a level felt easy`
   } else if (ctx.notes.length > 0) {
     explanation = ctx.notes[0] + (ctx.notes.length > 1 ? ` (also: ${ctx.notes.slice(1).join('; ').toLowerCase()})` : '')
   } else {
-    explanation = `Full session, week ${weekIndex}: ${sets} set${sets === 1 ? '' : 's'} of each exercise, stopping every set at RPE ${rpeCeiling} or when the last rep starts to look different`
+    explanation = `Full session, week ${weekIndex + 1}: ${sets} set${sets === 1 ? '' : 's'} of each exercise, stopping every set at RPE ${rpeCeiling} or when the last rep starts to look different`
   }
 
   return {

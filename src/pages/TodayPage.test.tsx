@@ -15,7 +15,7 @@ describe('TodayPage — state E (dashboard)', () => {
     )
 
     expect(
-      await screen.findByText(/Week 0 is about finding your starting level/i),
+      await screen.findByText(/first week is about finding your starting level/i),
     ).toBeInTheDocument()
     expect(await screen.findByRole('button', { name: /start session/i })).toBeInTheDocument()
 

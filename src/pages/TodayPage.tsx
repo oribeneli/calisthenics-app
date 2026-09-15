@@ -14,6 +14,7 @@ import { Dashboard } from '../components/today/Dashboard'
 import { DoneSummaryCard } from '../components/today/DoneSummaryCard'
 import { HabitList } from '../components/checkin/HabitList'
 import { RestDayCard } from '../components/today/RestDayCard'
+import { ExportReminder } from '../components/today/ExportReminder'
 import { SessionPlayer } from '../components/today/SessionPlayer'
 
 export default function TodayPage() {
@@ -87,6 +88,7 @@ export default function TodayPage() {
     return (
       <div className="flex flex-col gap-3">
         {showCheckinBanner && <CheckinBanner />}
+        <ExportReminder />
         {restDone ? (
           <Card>
             <h1 className="text-xl font-semibold">Rest day — done</h1>
@@ -107,6 +109,7 @@ export default function TodayPage() {
     return (
       <div className="flex flex-col gap-3">
         {showCheckinBanner && <CheckinBanner />}
+        <ExportReminder />
         <DoneSummaryCard
           session={todaySession}
           setLogs={todaySetLogs ?? []}
@@ -123,6 +126,7 @@ export default function TodayPage() {
     return (
       <div className="flex flex-col gap-3">
         {showCheckinBanner && <CheckinBanner />}
+        <ExportReminder />
         <Dashboard
           plan={plan}
           wantMinimum={wantMinimum}

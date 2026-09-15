@@ -23,9 +23,9 @@ export function AssessDecisionCard({
         <p className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
           {patternName}
         </p>
-        <h1 className="mt-0.5 text-xl font-semibold">{achievedLevel.name} felt easy</h1>
+        <h1 className="mt-0.5 text-xl font-semibold">How did {achievedLevel.name} feel?</h1>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-          You can try the next level to see if it's a better starting point, or lock this one in and move on.
+          If that was easy, try the next level; if it was real work, lock this one in and move on.
         </p>
       </Card>
       <StickyBottomBar>

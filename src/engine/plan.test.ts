@@ -56,6 +56,11 @@ describe('planToday — session kind', () => {
     expect(out.kind).toBe('done')
   })
 
+  it('assessment happens even on a non-training day', () => {
+    const out = planToday(input({ states: [], sessions: [], trainDays: [] }))
+    expect(out.kind).toBe('assessment')
+  })
+
   it('assessment when any ladder has no state: level 1, one set, assess mode', () => {
     const out = planToday(input({ states: [], sessions: [] }))
     expect(out.kind).toBe('assessment')
