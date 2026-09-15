@@ -10,6 +10,7 @@ import ProgramPage from './pages/ProgramPage'
 import ProgressPage from './pages/ProgressPage'
 import SettingsPage from './pages/SettingsPage'
 import TodayPage from './pages/TodayPage'
+import WhyPage from './pages/WhyPage'
 
 function AppRoutes() {
   useThemeEffect()
@@ -23,6 +24,7 @@ function AppRoutes() {
           <Route path="/checkin" element={<CheckinPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/program" element={<ProgramPage />} />
+          <Route path="/program/why" element={<WhyPage />} />
           <Route path="/program/:ladderId" element={<LadderPage />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Route>

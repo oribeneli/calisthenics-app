@@ -1,5 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
 import { Sheet } from '../components/ui/Modal'
@@ -78,6 +79,21 @@ export default function SettingsPage() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-xl font-semibold">Settings</h1>
+
+      <Card>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+          Profile
+        </h2>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          Update your details, or re-do the health check after a break.
+        </p>
+        <Link
+          to="/onboarding"
+          className="mt-3 inline-flex min-h-12 items-center justify-center rounded-xl bg-slate-200 px-4 text-sm font-medium text-slate-900 hover:bg-slate-300 active:bg-slate-400 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+        >
+          Edit profile & health check
+        </Link>
+      </Card>
 
       <Card>
         <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
