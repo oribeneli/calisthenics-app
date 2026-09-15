@@ -1,0 +1,763 @@
+{
+  "version": "1.0.0",
+  "ladders": [
+    {
+      "id": "push",
+      "name": "Horizontal Push",
+      "rationale": "Shoulders \"collapse inward\" under push-up load because serratus anterior is failing to hold protraction and upward rotation, so the first four levels are scapular-control drills, not push-ups — wall slides and the push-up plus give high serratus activity with low upper-trapezius activity, and setting the scapula before the arm moves is what raises lower-trap and lowers upper-trap recruitment. This is safe territory for a hypermobile shoulder: the only heavy-strengthening trial in hypermobility spectrum disorder showed strength and symptom gains with no serious adverse events, because load is the treatment and end range is the problem.",
+      "assessmentCap": 3,
+      "specialRegress": [
+        "If the shoulder blades wing on any single rep, that set ends immediately and the next session runs one level lower.",
+        "Drop to P3/P4 for one full session in any week the shoulder aches — control work is never wasted volume for this user."
+      ],
+      "levels": [
+        {
+          "id": "push.wall_serratus_press",
+          "name": "Wall Serratus Press",
+          "setup": "Stand arm's length from wall, palms flat at chest height, elbows straight but not locked. Without bending the elbows, push the chest away from the wall (blades spread), then let the chest drift back 2 cm only.",
+          "cues": ["Push the wall away", "Spread the blades, ribs down", "Elbows soft, never locked"],
+          "faults": ["Bending the elbows (it becomes a push-up)", "Shrugging toward the ears"],
+          "scheme": { "sets": 2, "reps": [8, 10], "restSec": 60 },
+          "advance": "Hit the target reps with a visible, symmetrical \"plus\" on every rep in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "push.wall_slide_forearms",
+          "name": "Wall Slide (Forearms)",
+          "setup": "Forearms on wall, pinkie edges touching, elbows at chest height. Slide forearms up the wall to head height keeping constant pressure; lower under control.",
+          "cues": ["Press forearms into the wall throughout", "Let the blades rotate up and around the ribs", "No shrug"],
+          "faults": ["Losing wall contact at the top", "Neck jutting forward"],
+          "scheme": { "sets": 2, "reps": [6, 8], "restSec": 60 },
+          "advance": "Hit the target reps with a visible, symmetrical \"plus\" on every rep in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "push.scap_wall_pushup",
+          "name": "Scapular Wall Push-Up",
+          "setup": "P1 position plus a small elbow bend: lower the chest 10-15 cm to the wall letting the blades come together, then push away and finish with an extra protraction (\"plus\").",
+          "cues": ["Blades together going in, blades apart at the top", "Chest leads, not head"],
+          "faults": ["Skipping the \"plus\"", "Letting the chest sink between the shoulders at the bottom"],
+          "scheme": { "sets": 2, "reps": [8, 12], "restSec": 60 },
+          "advance": "Hit the target reps with a visible, symmetrical \"plus\" on every rep in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "push.kneeling_scap_plus",
+          "name": "Kneeling Scapular Push-Up Plus",
+          "setup": "Hands (or fists) on a chair seat, knees on the floor, body straight knee-to-head, arms locked soft. No elbow bend at all: let the chest sink 3-5 cm between the blades, then press up and protract.",
+          "cues": ["Sink only 3 cm, not to end range", "Ribs down", "Squeeze glutes"],
+          "faults": ["Letting the chest drop to end range (the exact collapse you are training out of)", "Low back arching"],
+          "scheme": { "sets": 2, "reps": [8, 10], "restSec": 60 },
+          "advance": "Hit the target reps with a visible, symmetrical \"plus\" on every rep in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "push.wall_pushup",
+          "name": "Wall Push-Up",
+          "setup": "Feet ~60 cm from the wall, hands at chest height, shoulder-width. Lower the chest to the wall, press back, finish with a light \"plus\".",
+          "cues": ["2-1-2 tempo", "Elbows ~45° from the torso, not flared to 90°", "One line ear-to-heel"],
+          "faults": ["Head reaching the wall before the chest", "Hips sagging forward"],
+          "scheme": { "sets": 3, "reps": [15, 25], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 0,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "push.counter_pushup",
+          "name": "Counter Push-Up",
+          "setup": "Hands on a kitchen counter or high table edge (~95-105 cm). Same mechanics.",
+          "cues": ["Grip the edge so the wrists stay nearer neutral", "Set the blades before the first rep"],
+          "faults": ["Hands wider than needed", "Bottom position with blades pinched and chest collapsed"],
+          "scheme": { "sets": 3, "reps": [12, 15], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "push.table_pushup",
+          "name": "Table Push-Up",
+          "setup": "Hands on a sturdy dining table (~75 cm).",
+          "cues": ["Elbows track back, not out", "1 s pause at the bottom with the blades still controlled"],
+          "faults": ["Bouncing off the bottom", "Shrugging on the press"],
+          "scheme": { "sets": 3, "reps": [12, 15], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "push.chair_pushup",
+          "name": "Chair Push-Up",
+          "setup": "Hands on a chair seat or sofa arm (~45 cm). Brace the chair against a wall so it cannot slide.",
+          "cues": ["Same ear-to-heel line", "Squeeze the glutes to stop the hips sagging"],
+          "faults": ["Chair sliding (unsafe — stop)", "Hips leading the descent"],
+          "scheme": { "sets": 3, "reps": [8, 12], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "push.knee_pushup",
+          "name": "Knee Push-Up",
+          "setup": "Knees on a folded towel, ankles crossed, hands on fists or on the two lowest stair steps.",
+          "cues": ["Body straight knee to head", "Nose to the floor, not forehead", "Small \"plus\" to finish each rep"],
+          "faults": ["Hips piking up", "Hands too far forward of the shoulders"],
+          "scheme": { "sets": 3, "reps": [12, 20], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "push.knee_pushup_plus",
+          "name": "Knee Push-Up Plus",
+          "setup": "As P9, but every rep ends with a deliberate 1 s end-range protraction hold.",
+          "cues": ["Press the floor away and round the upper back 2 cm", "Keep the neck long"],
+          "faults": ["Shrugging instead of protracting", "Losing the knee-to-head line during the plus"],
+          "scheme": { "sets": 3, "reps": [8, 12], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "push.full_pushup_partial",
+          "name": "Full Push-Up (Partial Range)",
+          "setup": "Full plank on fists or push-up handles, lower only to ~45° elbow bend (chest ~25 cm off the floor), press up. Partial range keeps you out of the end range where the shoulder collapses.",
+          "cues": ["Set the blades before unweighting", "Glutes and abs on", "Stop the descent before the chest sinks between the shoulders"],
+          "faults": ["Descending to the floor before control exists", "Low back sagging"],
+          "scheme": { "sets": 3, "reps": [6, 8], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up.",
+          "regress": "Drop one level per the default rule; if the blades wing on any rep the set ends immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 1,
+          "hiddenUntilWeek": 9
+        },
+        {
+          "id": "push.full_pushup",
+          "name": "Full Push-Up",
+          "setup": "Full push-up, chest to fist height, on fists or handles.",
+          "cues": ["Elbows 45°", "Full protraction at lockout", "Whole body one rigid unit"],
+          "faults": ["Winging on the last 2 reps of a set (end the set there)", "Elbows flared to 90°"],
+          "scheme": { "sets": 3, "reps": [8, 15], "restSec": 90 },
+          "advance": "Hit the target with zero winging and zero wrist pain in two consecutive sessions, then move up. Practitioner standards are higher long-term, but 3×15-25 is ample for a novice.",
+          "regress": "Drop one level per the default rule; winging on any rep ends the set immediately and the next session runs one level lower.",
+          "wristLoad": 1,
+          "shoulderRisk": 2,
+          "hiddenUntilWeek": 9
+        }
+      ]
+    },
+    {
+      "id": "pull",
+      "name": "Pull (No Bar)",
+      "rationale": "Without a bar, rings, or bands there is no way to load the back near failure at bodyweight, so this ladder front-loads floor scapular work — prone Y/T/W and reverse snow angels are the highest-value items here, not filler, matching two of the five exercises in the only heavy-strengthening trial for hypermobile shoulders. Table-edge and doorframe rows are added carefully: most flat-pack tables are not rated for a concentrated edge load, so table rows are gated behind a 30-second sit test, and isometric towel work trains three elbow angles since isometric strength gains are joint-angle specific.",
+      "assessmentCap": 4,
+      "ceilingNote": "Ceiling: roughly a controlled 3 × 8 horizontal towel row, feet far forward (torso near 45° or lower). Past that, progress needs a doorway bar, rings, or bands (~$20-30) — plan that purchase for month 3; this ladder makes it earnable, not unnecessary.",
+      "specialRegress": [
+        "Any shoulder click, pinch, or \"slipping\" sensation at the bottom of a row drops you two levels and back to L3–L4 for a week — hypermobile shoulders are most at risk at the bottom, fully protracted position."
+      ],
+      "levels": [
+        {
+          "id": "pull.prone_scap_retract",
+          "name": "Prone Scapular Retraction",
+          "setup": "Face down on the floor, arms by the sides, forehead on a towel. Squeeze the blades down and together, hold, release. No arm lift.",
+          "cues": ["Blades into your back pockets", "Chin tucked", "Keep breathing"],
+          "faults": ["Shrugging up instead of back-and-down", "Lifting the chest"],
+          "scheme": { "sets": 3, "reps": [6, 8], "restSec": 60 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions; advance only when done with no shrug and no low-back arch.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "pull.prone_t",
+          "name": "Prone T",
+          "setup": "Prone, arms straight out sideways (T), thumbs up. Lift the arms ~5 cm, hold 3 s, lower.",
+          "cues": ["Lead with the blade, not the hand", "Ribs stay on the floor"],
+          "faults": ["Arching the low back to lift higher", "Shrugging"],
+          "scheme": { "sets": 2, "reps": [8, 10], "restSec": 60 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions; advance only when done with no shrug and no low-back arch.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "pull.prone_y",
+          "name": "Prone Y",
+          "setup": "Prone, arms overhead at ~120° (Y), thumbs up. Retract and depress the blades first, then lift the arms.",
+          "cues": ["Depress first, then lift — that recruits lower trap", "Keep the neck long"],
+          "faults": ["Starting the lift from the hand", "Upper traps taking over"],
+          "scheme": { "sets": 2, "reps": [8, 10], "restSec": 60 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions; advance only when done with no shrug and no low-back arch.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "pull.reverse_snow_angel",
+          "name": "Reverse Snow Angel",
+          "setup": "Prone, palms down, arms by the sides. Slide the arms along the floor out to overhead and back, keeping light floor contact throughout.",
+          "cues": ["Keep contact the whole arc", "Go only as high as contact allows", "Slow"],
+          "faults": ["Losing floor contact mid-arc", "Bending the elbows to fake range"],
+          "scheme": { "sets": 2, "reps": [4, 6], "restSec": 60 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions; advance only when done with no shrug and no low-back arch.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "pull.isometric_towel_row",
+          "name": "Isometric Towel Row",
+          "setup": "Seated or standing, towel around a doorframe upright (or gripped in both hands and pulled apart). Pull into a row position and hold. Use three angles: arms long, elbows 90°, elbows fully back.",
+          "cues": ["Ramp to ~70% effort over 2 s", "Blades back first, then elbows", "Exhale through the hold"],
+          "faults": ["Holding the breath / bearing down", "Pulling with the biceps only"],
+          "scheme": { "sets": 2, "holdSec": [10, 10], "restSec": 90 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "pull.bent_over_towel_row",
+          "name": "Bent-Over Towel Row",
+          "setup": "Hinge at the hips to ~45°, towel under both feet, grip the ends, pull the elbows back against your own resistance.",
+          "cues": ["Neutral spine, chest proud", "Elbows brush the ribs", "Resist the lowering too"],
+          "faults": ["Rounding the low back", "Jerking"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 90 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "pull.doorframe_row_high",
+          "name": "Doorframe Row (High)",
+          "setup": "Towel around a door edge on the hinge side, door open and wedged. Grip both ends, feet close to the door, lean back only ~20°. Pull the chest toward the hands.",
+          "cues": ["Straight line ankle to head", "Blades back before the elbows bend", "Ribs down"],
+          "faults": ["Hips sagging (it becomes a squat-row)", "Yanking the door"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 90 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "pull.doorframe_row_mid",
+          "name": "Doorframe Row (Mid)",
+          "setup": "As L7, feet walked forward so the torso leans back ~35°.",
+          "cues": ["Straight line ankle to head", "Blades back before the elbows bend", "1 s pause at the top with the chest near the hands"],
+          "faults": ["Shrugging at the top", "Shoulders rolling forward at the bottom"],
+          "scheme": { "sets": 3, "reps": [6, 8], "restSec": 90 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "pull.table_row_bent_knee",
+          "name": "Table Row (Bent Knee)",
+          "setup": "Only if the table passed the sit-test. Lie under the table, grip the edge, knees bent, feet flat. Pull the chest to the edge.",
+          "cues": ["Bent knees cut the load", "Squeeze the glutes", "Elbows ~45°"],
+          "faults": ["Table tipping (stop immediately)", "Pulling with the neck"],
+          "scheme": { "sets": 3, "reps": [6, 8], "restSec": 90 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 2,
+          "gate": { "key": "table_sit_test", "label": "My table passed the 30-second sit test (solid wood or steel frame, no flex, no tipping)" }
+        },
+        {
+          "id": "pull.doorframe_row_low",
+          "name": "Doorframe Row (Low)",
+          "setup": "Feet walked far forward, torso toward horizontal; or table row with legs straight, heels on the floor.",
+          "cues": ["Rigid body", "2 s down", "Full retraction at the top"],
+          "faults": ["Hips piking", "Partial range"],
+          "scheme": { "sets": 3, "reps": [6, 8], "restSec": 90 },
+          "advance": "3 × 8 clean reps (or the stated holds) in two consecutive sessions. This is the honest ceiling — buy bands or a doorway bar from here.",
+          "regress": "Drop one level per the default rule; any shoulder click, pinch, or slipping sensation drops two levels back to L3–L4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 2
+        }
+      ]
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "rationale": "Patellofemoral joint force peaks near 90° of knee flexion and rises with depth and load, so early levels stay above roughly 60-90° flexion while the sit-to-stand pattern rebuilds the quadriceps recruitment obese beginners show is reduced during that task. Depth is earned, not avoided forever — once parallel is solid, extra depth is added gradually rather than skipped out of unfounded fear, since deep squatting is safe absent prior injury.",
+      "assessmentCap": 4,
+      "specialRegress": [
+        "Anterior knee pain above 3/10 during or the day after returns you to the last level that kept knee flexion under ~60° (S1/S2) for two sessions, then re-enter one level below where the pain appeared.",
+        "Split squats (S9/S10) are removed entirely, not regressed, if knee pain recurs twice."
+      ],
+      "levels": [
+        {
+          "id": "squat.wall_sit_shallow",
+          "name": "Shallow Wall Sit",
+          "setup": "Back flat on the wall, feet forward, slide down to only ~30-40° knee bend. Hold.",
+          "cues": ["Even pressure through the whole foot", "Knees over mid-foot", "Breathe normally"],
+          "faults": ["Sliding too deep too soon", "Holding the breath"],
+          "scheme": { "sets": 3, "holdSec": [20, 30], "restSec": 60 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.sit_to_stand_high",
+          "name": "Sit-to-Stand (High)",
+          "setup": "Chair with a cushion (or the arm of a sofa) so the hips sit well above the knees. Stand and sit, hands free if possible, on the chair arms if not.",
+          "cues": ["Nose over toes on the way up", "Push the floor away", "Sit down slowly (3 s)"],
+          "faults": ["Flopping into the seat", "Using the hands to pull up once you no longer need to"],
+          "scheme": { "sets": 3, "reps": [8, 12], "restSec": 60 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.sit_to_stand_normal",
+          "name": "Sit-to-Stand (Normal)",
+          "setup": "Standard dining chair, no hands.",
+          "cues": ["3 s down, touch, 1 s pause, stand", "Knees track over the 2nd toe"],
+          "faults": ["Rocking the torso forward for momentum", "Knees collapsing inward"],
+          "scheme": { "sets": 3, "reps": [10, 15], "restSec": 60 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.box_squat_high",
+          "name": "Box Squat (High, Tap)",
+          "setup": "Same chair, but tap the seat and stand without sitting — continuous tension.",
+          "cues": ["Hips back first, then the knees bend", "Chest up", "Tap, don't rest"],
+          "faults": ["Sitting down fully (that is S3)", "Heels lifting"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.box_squat_low",
+          "name": "Box Squat (Low, Tap)",
+          "setup": "Lower target (low stool or a stack of books, ~35 cm) — approaching 90°.",
+          "cues": ["Hips back first, then the knees bend", "Control the last 5 cm"],
+          "faults": ["Dropping the last 5 cm", "Knees caving"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.doorframe_assisted",
+          "name": "Doorframe-Assisted Squat",
+          "setup": "Face a doorframe, hold both uprights lightly, squat as deep as is comfortable, using the hands for balance and ~10% assistance only.",
+          "cues": ["Hands are a balance aid, not a winch", "Sit between the heels", "Heels down"],
+          "faults": ["Pulling yourself up with the arms", "Leaning back into the hands"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.bodyweight_parallel",
+          "name": "Bodyweight Squat (Parallel)",
+          "setup": "Free squat to thighs-parallel, feet shoulder-width, toes slightly out.",
+          "cues": ["Screw the feet into the floor", "Knees out", "Brace the abs before descending"],
+          "faults": ["Butt-wink (low back rounding at the bottom — stop above that depth)", "Heels rising"],
+          "scheme": { "sets": 3, "reps": [10, 15], "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running; once solid at parallel, add depth gradually rather than reps.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.tempo_squat",
+          "name": "Tempo Squat",
+          "setup": "Parallel squat: 4 s down, 2 s pause at the bottom, 1 s up.",
+          "cues": ["Stay tight in the pause", "No bouncing out of the hole"],
+          "faults": ["Shortening the pause as you fatigue", "Losing the brace"],
+          "scheme": { "sets": 3, "reps": [6, 8], "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; anterior knee pain over 3/10 returns you to S1/S2 for two sessions before re-entering one level below where the pain appeared.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "squat.split_squat_assisted",
+          "name": "Split Squat (Assisted)",
+          "setup": "Staggered stance, rear foot flat on the floor behind (not elevated), fingertips on a wall or chair back. Lower the rear knee toward the floor.",
+          "cues": ["70% of the weight on the front foot", "Torso upright", "A longer step is more glute-biased and knee-friendlier than a short one"],
+          "faults": ["Front knee travelling far past the toes with a short step", "Wobbling (add fingertip support rather than cutting range)"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; removed entirely, not regressed, if knee pain recurs twice.",
+          "wristLoad": 0,
+          "shoulderRisk": 0,
+          "hiddenUntilWeek": 9
+        },
+        {
+          "id": "squat.split_squat_free",
+          "name": "Split Squat (Free)",
+          "setup": "Same, unsupported, with a 2 s pause at the bottom.",
+          "cues": ["Vertical shin on the front leg", "Rear-knee tap, no crash"],
+          "faults": ["Front knee collapsing inward", "Leaning toward the supported side"],
+          "scheme": { "sets": 3, "reps": [8, 10], "perSide": true, "restSec": 90 },
+          "advance": "Hit the target with heels down, knees tracking, and no low-back rounding, two sessions running.",
+          "regress": "Drop one level per the default rule; removed entirely, not regressed, if knee pain recurs twice.",
+          "wristLoad": 0,
+          "shoulderRisk": 0,
+          "hiddenUntilWeek": 9
+        }
+      ]
+    },
+    {
+      "id": "hinge",
+      "name": "Hinge",
+      "rationale": "The hinge is taught with kinaesthetic constraint rather than verbal cueing — the wall-tap and the three-point towel-along-the-spine drill give instant self-correcting feedback about spinal neutral, because this is the movement pattern the user will rely on for the rest of their life. Glute bridging at a ~135° knee angle preferentially recruits glute max over hamstrings, which matters because hamstring cramping is the most common way a beginner drops out of the exercise.",
+      "assessmentCap": 3,
+      "specialRegress": [
+        "Any low-back ache during or after a hinge drops you to H6 (the towel constraint) regardless of where you were — the constraint drill fixes lost neutral faster than cutting reps does.",
+        "Hamstring cramping in bridges is not a regression trigger: move the feet and continue."
+      ],
+      "levels": [
+        {
+          "id": "hinge.glute_bridge",
+          "name": "Glute Bridge",
+          "setup": "On your back, knees bent ~90°, feet flat. Squeeze the glutes and lift the hips to a straight knee-hip-shoulder line.",
+          "cues": ["Tuck the pelvis before lifting", "Push through the heels", "Ribs down"],
+          "faults": ["Arching the low back to gain height", "Hamstring cramp (move the feet closer)"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 60 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running; for H1–H4, add hold time before adding reps.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.glute_bridge_135",
+          "name": "Glute Bridge (135°)",
+          "setup": "As H1 but with the feet further from the hips (knee ~135°). More glute, less hamstring.",
+          "cues": ["Drive through the whole foot", "3 s hold at the top"],
+          "faults": ["Pushing through the toes", "Hips dropping between reps"],
+          "scheme": { "sets": 3, "reps": [10, 12], "restSec": 60 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running; for H1–H4, add hold time before adding reps.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.bridge_march",
+          "name": "Bridge March",
+          "setup": "H1 position, hips up, alternately lift one foot 5 cm.",
+          "cues": ["Hips stay perfectly level", "Brace the abs"],
+          "faults": ["Hips rocking side to side", "Hips sinking as you march"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 60 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running; for H1–H4, add hold time before adding reps.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.single_leg_bridge",
+          "name": "Single-Leg Bridge",
+          "setup": "One foot planted (knee ~135°), the other knee hugged loosely or the leg straight. Lift the hips.",
+          "cues": ["Level pelvis", "Squeeze the working glute", "2 s up, 2 s down"],
+          "faults": ["Rotating the pelvis toward the free leg", "Pushing off with the free leg"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 60 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running; for H1–H4, add hold time before adding reps.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.wall_hip_tap",
+          "name": "Wall Hip Tap",
+          "setup": "Stand ~15 cm from a wall, feet hip-width. Push the hips straight back to tap the wall with the glutes, chest folding forward, knees only slightly bent. Stand tall.",
+          "cues": ["Shut a car door with your backside", "Shins near-vertical", "Chest down, not chin down"],
+          "faults": ["Squatting down instead of pushing back", "Rounding the upper back"],
+          "scheme": { "sets": 3, "reps": [10, 12], "restSec": 90 },
+          "advance": "Hit the stated target with the three-point towel contact intact (H6+) or a level pelvis on every rep, two sessions running.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.towel_spine_hinge",
+          "name": "Towel Spine Hinge",
+          "setup": "Hold a rolled towel or broom vertically along the spine, touching head, upper back and tailbone. Hinge while keeping all three contacts.",
+          "cues": ["If a contact breaks you rounded — reset", "Go only as low as neutral holds"],
+          "faults": ["Losing head contact (chin poke)", "Losing tailbone contact (low-back rounding)"],
+          "scheme": { "sets": 3, "reps": [8, 10], "restSec": 90 },
+          "advance": "Hit the stated target with the three-point towel contact intact on every rep, two sessions running.",
+          "regress": "Drop one level per the default rule; this is the fallback level for any low-back ache elsewhere in the ladder.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.good_morning_bw",
+          "name": "Bodyweight Good Morning",
+          "setup": "Hands behind the head, feet hip-width, hinge to a ~45-60° torso angle, return.",
+          "cues": ["Long spine", "Feel a stretch in the hamstrings, not the low back", "Squeeze the glutes to stand"],
+          "faults": ["Bending the knees excessively", "Hyperextending at the top (a hypermobility trap)"],
+          "scheme": { "sets": 3, "reps": [10, 12], "restSec": 90 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.staggered_rdl",
+          "name": "Staggered-Stance RDL",
+          "setup": "Hinge with one foot back on the toes (kickstand), ~80% of the weight on the front leg, fingertips on a chair for balance.",
+          "cues": ["Hips square", "Hinge back, not down", "Front shin vertical"],
+          "faults": ["Letting the hip rotate open", "Twisting the torso"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 90 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "hinge.single_leg_rdl",
+          "name": "Single-Leg RDL",
+          "setup": "Full single-leg RDL, free leg extending behind as the torso folds; fingertips on a wall at first, then unsupported.",
+          "cues": ["Back leg and torso move as one lever", "Square the hips", "3 s down"],
+          "faults": ["Opening the hip to the ceiling", "Rounding at the bottom of the range"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 90 },
+          "advance": "Hit the stated target with a level pelvis on every rep, two sessions running.",
+          "regress": "Drop one level per the default rule; any low-back ache during or after a hinge drops you to H6 regardless of your current level.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        }
+      ]
+    },
+    {
+      "id": "core",
+      "name": "Core",
+      "rationale": "Following McGill's argument, the core ladder trains the spine to resist motion and builds endurance rather than repeatedly flexing it — sit-ups and crunches are avoided, and the curl-up substitutes for them without cycling the spine. Holds are short and repeated (descending reps like 6/4/2) rather than marathon planks, which builds endurance without the form breakdown that comes from holding to fatigue; dead bug and bird dog are the anti-extension and anti-rotation entries, and plank difficulty is scaled by incline, which is also the wrist-friendliest lever.",
+      "assessmentCap": 4,
+      "specialRegress": [
+        "Any low-back ache sends you back to C1–C4 for a week.",
+        "Any shoulder sinking or wrist pain in planks sends you back to C7/C8 (incline) and defaults to fists.",
+        "Cap any single hold at 30 s — never chase a long-plank personal record."
+      ],
+      "levels": [
+        {
+          "id": "core.dead_bug_hands",
+          "name": "Dead Bug (Hands on Knees)",
+          "setup": "On your back, knees and hips at 90°, hands pressing into the knees. Press and hold, breathing.",
+          "cues": ["Flatten the low back into the floor and keep it there", "Exhale slowly"],
+          "faults": ["Low back lifting off the floor", "Holding the breath"],
+          "scheme": { "sets": 3, "holdSec": [15, 20], "restSec": 60 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold before moving up a level.",
+          "regress": "Drop one level per the default rule; any low-back ache sends you to C1–C4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "core.dead_bug_heel_tap",
+          "name": "Dead Bug (Heel Tap)",
+          "setup": "Same, lower one heel to tap the floor, return.",
+          "cues": ["Back stays flat throughout", "Move slowly", "Tap, don't drop"],
+          "faults": ["Ribs flaring", "Back arching as the leg lowers"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 60 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps before moving up a level.",
+          "regress": "Drop one level per the default rule; any low-back ache sends you to C1–C4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "core.dead_bug_full",
+          "name": "Dead Bug (Full)",
+          "setup": "Opposite arm and leg extend together.",
+          "cues": ["Exhale as the limbs extend", "Go only as far as a flat back allows"],
+          "faults": ["Extending past control", "Rushing"],
+          "scheme": { "sets": 3, "reps": [6, 8], "perSide": true, "restSec": 60 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps before moving up a level.",
+          "regress": "Drop one level per the default rule; any low-back ache sends you to C1–C4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "core.mcgill_curl_up",
+          "name": "McGill Curl-Up",
+          "setup": "On your back, one knee bent one straight, hands under the low back to preserve its natural arch. Lift head and shoulders a few cm only, chin tucked, no spinal flexion.",
+          "cues": ["Head and shoulders move as one block", "The hands keep the low-back arch", "Descending reps: 6, then 4, then 2, each held 10 s"],
+          "faults": ["Pulling on the neck", "Curling into a crunch"],
+          "scheme": { "sets": 3, "holdSec": [10, 10], "restSec": 60 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold before moving up a level.",
+          "regress": "Drop one level per the default rule; any low-back ache sends you to C1–C4 for a week.",
+          "wristLoad": 0,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "core.bird_dog_arm",
+          "name": "Bird Dog (Arm Only)",
+          "setup": "Quadruped (hands on fists to spare the wrists). Extend one arm only, hold.",
+          "cues": ["Hips and shoulders level", "Long from head to tailbone", "Brace lightly, hold 8 s"],
+          "faults": ["Hips rotating", "Sagging low back"],
+          "scheme": { "sets": 3, "reps": [4, 6], "perSide": true, "restSec": 60 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps before moving up a level.",
+          "regress": "Drop one level per the default rule; any low-back ache sends you to C1–C4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "core.bird_dog_full",
+          "name": "Bird Dog (Full)",
+          "setup": "Opposite arm and leg, hold, then sweep the limbs back under the body to draw a square.",
+          "cues": ["Balance a glass on the low back", "Reach long, don't lift high"],
+          "faults": ["Lifting the leg above hip height (hyperextension — a hypermobility trap)", "Shrugging the support arm"],
+          "scheme": { "sets": 3, "reps": [4, 6], "perSide": true, "restSec": 60 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps before moving up a level.",
+          "regress": "Drop one level per the default rule; any low-back ache sends you to C1–C4 for a week.",
+          "wristLoad": 1,
+          "shoulderRisk": 0
+        },
+        {
+          "id": "core.plank_wall",
+          "name": "Plank (Wall)",
+          "setup": "Forearms on a wall, feet back ~60 cm, body straight. Hold.",
+          "cues": ["Blades spread (press the wall away)", "Tuck the pelvis", "Glutes on"],
+          "faults": ["Hips sagging", "Head dropping"],
+          "scheme": { "sets": 3, "holdSec": [20, 30], "restSec": 90 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold; cap any single hold at 30 s.",
+          "regress": "Drop one level per the default rule; any shoulder sinking or wrist pain sends you back to C7/C8 (incline) and defaults to fists.",
+          "wristLoad": 0,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "core.plank_incline",
+          "name": "Plank (Incline)",
+          "setup": "Forearms on a table or chair seat, feet on the floor.",
+          "cues": ["Blades spread, press the surface away", "Tuck the pelvis"],
+          "faults": ["Shoulders drifting behind the elbows", "Low back arching"],
+          "scheme": { "sets": 3, "holdSec": [20, 30], "restSec": 90 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold; cap any single hold at 30 s.",
+          "regress": "Drop one level per the default rule; any shoulder sinking or wrist pain sends you back to C7/C8 (incline) and defaults to fists.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "core.plank_knee",
+          "name": "Plank (Knee)",
+          "setup": "Forearms on the floor, knees down on a towel.",
+          "cues": ["Elbows under the shoulders", "Ribs down", "Squeeze the glutes; protract slightly"],
+          "faults": ["Sinking between the shoulders (the collapse pattern — abort the set)", "Hips in the air"],
+          "scheme": { "sets": 3, "holdSec": [20, 30], "restSec": 90 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold; cap any single hold at 30 s.",
+          "regress": "Drop one level per the default rule; any shoulder sinking or wrist pain sends you back to C7/C8 (incline) and defaults to fists.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "core.plank_full",
+          "name": "Plank (Full)",
+          "setup": "Full forearm plank.",
+          "cues": ["One rigid line", "Brace as if expecting a punch", "Short holds, more reps"],
+          "faults": ["Holding to failure and sagging", "Head craned up"],
+          "scheme": { "sets": 3, "holdSec": [15, 30], "restSec": 90 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold; cap any single hold at 30 s.",
+          "regress": "Drop one level per the default rule; any shoulder sinking or wrist pain sends you back to C7/C8 (incline) and defaults to fists.",
+          "wristLoad": 1,
+          "shoulderRisk": 1
+        },
+        {
+          "id": "core.side_plank_ladder",
+          "name": "Side Plank Ladder",
+          "setup": "Knees-bent side plank → full side plank → side plank with the top leg lifted. Forearm down, elbow under the shoulder.",
+          "cues": ["Stack shoulder over elbow", "Push the floor away (don't sink into the shoulder)", "Descending reps: 6, then 4, then 2, each held 10 s per side"],
+          "faults": ["Sinking into the bottom shoulder — particularly risky with a lax shoulder", "Rolling forward"],
+          "scheme": { "sets": 3, "holdSec": [10, 10], "perSide": true, "restSec": 90 },
+          "advance": "Hold the target without the named faults, two sessions running, then add reps of the same short hold; cap any single hold at 30 s. Never chase a long-plank personal record.",
+          "regress": "Drop one level per the default rule; any shoulder sinking or wrist pain sends you back to C7/C8 (incline) and defaults to fists.",
+          "wristLoad": 1,
+          "shoulderRisk": 2
+        }
+      ]
+    }
+  ],
+  "warmup": [
+    { "id": "raise", "name": "General raise", "cue": "Marching on the spot, step-touch, and arm swings — raise tissue temperature and heart rate before the session.", "durationSec": 120 },
+    { "id": "wrist_prep", "name": "Wrist prep", "cue": "Palms-down and palms-up floor rocks (small range), fist-open cycles, gentle forearm circles.", "durationSec": 45 },
+    { "id": "cat_cow_open_book", "name": "Cat-cow + open book", "cue": "Cat-cow × 6 and open-book thoracic rotation × 5 per side — dynamic, mid-range spinal motion.", "durationSec": 60 },
+    { "id": "serratus_activation", "name": "Serratus activation", "cue": "8 wall slides plus 8 wall serratus presses — primes the muscle that fails first during pushing.", "durationSec": 60 },
+    { "id": "rehearsal", "name": "Movement rehearsal", "cue": "10 glute bridges and 5 bodyweight sit-to-stands — rehearse today's patterns before loading them.", "durationSec": 60 }
+  ],
+  "cooldown": [
+    { "id": "easy_walk", "name": "Easy walk", "cue": "An easy walk around the room, nothing strenuous.", "durationSec": 90 },
+    { "id": "nasal_breaths", "name": "Slow nasal breaths", "cue": "4-6 slow nasal breaths lying down.", "durationSec": 30 }
+  ],
+  "restDayMobility": [
+    { "id": "cat_cow", "name": "Cat-cow", "cue": "6 slow cat-cow cycles for dynamic, mid-range spinal motion.", "durationSec": 60 },
+    { "id": "open_book", "name": "Open-book rotation", "cue": "5 open-book thoracic rotations per side.", "durationSec": 60 },
+    { "id": "wall_slides", "name": "Wall slides", "cue": "Forearms on the wall, slide up and down keeping constant pressure — light serratus activation.", "durationSec": 60 },
+    { "id": "glute_bridges", "name": "Glute bridges", "cue": "Slow glute bridges, squeeze the glutes at the top.", "durationSec": 60 },
+    { "id": "easy_walk", "name": "Easy walk", "cue": "An easy walk to finish, nothing strenuous.", "durationSec": 120 }
+  ],
+  "volumeRamp": [
+    { "weekFrom": 0, "sets": 1 },
+    { "weekFrom": 2, "sets": 2 },
+    { "weekFrom": 4, "sets": 3 }
+  ],
+  "rpeCeiling": [
+    { "weekFrom": 0, "rpe": 6 },
+    { "weekFrom": 3, "rpe": 7 },
+    { "weekFrom": 9, "rpe": 8 }
+  ],
+  "rules": {
+    "advanceCleanSessions": 2,
+    "regressFailSessions": 2,
+    "regressShortFraction": 0.7,
+    "tooHardSetsForFail": 2,
+    "sleepLowHours": 6,
+    "sleepMidHours": 7,
+    "sleepQualityLow": 2,
+    "sorenessHigh": 4,
+    "sorenessPersistSessions": 3,
+    "moodLow": 2,
+    "deloadRegressEventsWindowDays": 21,
+    "deloadRegressEvents": 2,
+    "deloadFormBreakSessions": 3,
+    "deloadSetFactor": 0.5,
+    "missWeekDays": 7,
+    "missTwoWeeksDays": 14,
+    "missFourWeeksDays": 28
+  },
+  "habits": [
+    { "key": "protein_each_meal", "label": "Protein at every meal (~30 g)", "why": "≥25-30 g of protein per meal improves appetite control and body-weight outcomes during weight loss." },
+    { "key": "veg_two_meals", "label": "Vegetables or fruit at 2 meals", "why": "A single fibre goal of ≥30 g/day produced weight loss comparable to a far more complex 13-component diet." },
+    { "key": "no_sugary_drinks", "label": "No sugary drinks today", "why": "Adding sugar-sweetened drinks adds weight and removing them takes it back off in controlled trials." },
+    { "key": "water_before_meals", "label": "A large glass of water before each main meal", "why": "Pre-meal water added roughly 2 kg of extra weight loss over 12 weeks in randomized trials." },
+    { "key": "sleep_7h", "label": "7+ hours in bed", "why": "Short sleep redirects weight loss away from fat and into muscle, and under-8-hour sleep tracks with higher injury odds." },
+    { "key": "walk_target", "label": "Walk target hit", "why": "Daily steps are the aerobic base that ramps gradually alongside the strength work." }
+  ],
+  "screening": [
+    { "id": "q1", "text": "Has your doctor ever said that you have a heart condition or high blood pressure?", "gate": "hard" },
+    { "id": "q2", "text": "Do you feel pain in your chest at rest, during your daily activities of living, or when you do physical activity?", "gate": "hard" },
+    { "id": "q3", "text": "Do you lose balance because of dizziness or have you lost consciousness in the last 12 months? (answer NO if the dizziness was from over-breathing during vigorous exercise)", "gate": "hard" },
+    { "id": "q4", "text": "Have you ever been diagnosed with another chronic medical condition (other than heart disease or high blood pressure)? (list it)", "gate": "soft" },
+    { "id": "q5", "text": "Are you currently taking prescribed medications for a chronic medical condition? (list them)", "gate": "soft" },
+    { "id": "q6", "text": "Do you currently have — or have you had in the past 12 months — a bone, joint or soft-tissue (muscle, ligament, tendon) problem that could be made worse by becoming more physically active? (answer NO if it no longer limits you)", "gate": "advisory" },
+    { "id": "q7", "text": "Has your doctor ever said that you should only do medically supervised physical activity?", "gate": "hard" },
+    { "id": "q8", "text": "Have you ever dislocated or subluxed a shoulder, or does a shoulder slip / feel unstable?", "gate": "adapt", "note": "Push ladder locked at incline ≥ chest height for 4 weeks" },
+    { "id": "q9", "text": "Do you get wrist pain, or numbness or tingling in your hands?", "gate": "adapt", "note": "All hand-loaded work defaults to fists / forearms" },
+    { "id": "q10", "text": "Are you pregnant or within 6 months post-partum?", "gate": "soft" },
+    { "id": "q11", "text": "Do you know your blood pressure, and was the last reading ≥ 140/90?", "gate": "advisory" }
+  ]
+}
