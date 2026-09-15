@@ -5,9 +5,7 @@ dashboard, a check-in flow, progress charts and a program browser. All data
 lives in the browser (IndexedDB via Dexie); JSON export/import is the backup
 path.
 
-This repo is the **app shell** — routing, layout, local storage schema, UI
-primitives, PWA install/offline plumbing and CI. Exercise/program content and
-the adaptive training-decision engine are built separately on top of it.
+What is inside: the research synthesis and decisions (docs/RESEARCH.md, docs/research/), the program as data (src/data/program.json, prose in docs/PROGRAM.md), a pure adaptive engine with named rules (src/engine/, simulated in docs/SIMULATION.md), the Dexie adapter (src/app/coach.ts) and the six screens (Onboarding, Today, Check-in, Progress, Program, Settings). Install and deploy steps: docs/INSTALL.md. Cloud-sync evaluation: docs/SYNC.md. Verified phone-viewport screenshots: docs/screenshots/.
 
 ## Stack
 
