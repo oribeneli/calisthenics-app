@@ -13,9 +13,9 @@ export function RoutineList({ title, steps }: { title: string; steps: RoutineSte
 
   return (
     <details className="group">
-      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 [&::-webkit-details-marker]:hidden">
-        <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">{title}</span>
-        <span className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+      <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-2 [&::-webkit-details-marker]:hidden">
+        <span className="text-sm font-semibold text-ink">{title}</span>
+        <span className="num flex items-center gap-2 text-xs text-muted">
           {formatDuration(totalSec)}
           <svg
             width="16"
@@ -33,16 +33,14 @@ export function RoutineList({ title, steps }: { title: string; steps: RoutineSte
           </svg>
         </span>
       </summary>
-      <ol className="mt-2 flex flex-col gap-2 border-t border-slate-100 pt-2 dark:border-slate-800">
+      <ol className="mt-2 flex flex-col gap-2 border-t border-line pt-2">
         {steps.map((step) => (
           <li key={step.id} className="flex items-start justify-between gap-3 text-sm">
             <div>
-              <p className="font-medium text-slate-800 dark:text-slate-200">{step.name}</p>
-              <p className="text-slate-500 dark:text-slate-400">{step.cue}</p>
+              <p className="font-medium text-ink">{step.name}</p>
+              <p className="text-muted">{step.cue}</p>
             </div>
-            <span className="shrink-0 tabular-nums text-slate-500 dark:text-slate-400">
-              {formatDuration(step.durationSec)}
-            </span>
+            <span className="num shrink-0 text-muted">{formatDuration(step.durationSec)}</span>
           </li>
         ))}
       </ol>

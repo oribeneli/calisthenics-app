@@ -91,10 +91,8 @@ export default function TodayPage() {
         <ExportReminder />
         {restDone ? (
           <Card>
-            <h1 className="text-xl font-semibold">Rest day — done</h1>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-              Mobility routine logged. See you on your next training day.
-            </p>
+            <h1 className="text-xl font-semibold text-ink">Rest day complete</h1>
+            <p className="mt-1 text-sm text-body">Mobility routine logged. See you on your next training day.</p>
           </Card>
         ) : (
           <RestDayCard steps={program.restDayMobility} onDone={refresh} />

@@ -17,9 +17,7 @@ export function SegmentedYesNo({ value, onChange, ariaLabel, className }: Segmen
         onClick={() => onChange(true)}
         className={cn(
           'min-h-12 flex-1 rounded-xl text-base font-semibold transition-colors',
-          value === true
-            ? 'bg-sky-600 text-white'
-            : 'bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100',
+          value === true ? 'bg-accent text-on-accent' : 'bg-inset text-ink',
         )}
       >
         Yes
@@ -30,9 +28,7 @@ export function SegmentedYesNo({ value, onChange, ariaLabel, className }: Segmen
         onClick={() => onChange(false)}
         className={cn(
           'min-h-12 flex-1 rounded-xl text-base font-semibold transition-colors',
-          value === false
-            ? 'bg-sky-600 text-white'
-            : 'bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100',
+          value === false ? 'bg-accent text-on-accent' : 'bg-inset text-ink',
         )}
       >
         No

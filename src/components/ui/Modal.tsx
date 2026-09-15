@@ -35,12 +35,12 @@ export function Sheet({ open, onClose, title, children, className }: SheetProps)
         aria-modal="true"
         aria-label={title}
         className={cn(
-          'safe-bottom relative z-10 max-h-[85vh] w-full max-w-md overflow-y-auto rounded-t-2xl bg-white p-5 shadow-xl dark:bg-slate-900',
+          'safe-bottom relative z-10 max-h-[85vh] w-full max-w-md overflow-y-auto rounded-t-2xl bg-raised p-5 shadow-xl',
           className,
         )}
       >
-        <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-slate-300 dark:bg-slate-700" />
-        {title && <h2 className="mb-3 text-lg font-semibold">{title}</h2>}
+        <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-line" />
+        {title && <h2 className="mb-3 text-lg font-semibold text-ink">{title}</h2>}
         {children}
       </div>
     </div>

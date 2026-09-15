@@ -17,8 +17,8 @@ export function BodyWeightSection() {
 
   if (points.length === 0) {
     return (
-      <p className="text-sm text-slate-500 dark:text-slate-400">
-        No weight entries yet. Log weight on the Check-in screen — it&rsquo;s optional.
+      <p className="text-sm text-muted">
+        No weight entries yet. Log weight on the check-in screen, it is optional.
       </p>
     )
   }
@@ -33,40 +33,46 @@ export function BodyWeightSection() {
   return (
     <div>
       <div className="flex items-baseline gap-3">
-        <span className="text-3xl font-semibold tabular-nums text-slate-900 dark:text-slate-100">
-          {latest.avg7.toFixed(1)} kg
-        </span>
-        <span className="text-sm text-slate-500 dark:text-slate-400">7-day average</span>
+        <span className="num text-[36px] text-ink">{latest.avg7.toFixed(1)} kg</span>
+        <span className="text-sm text-muted">7-day average</span>
       </div>
-      <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-400">
+      <p className="num mt-0.5 text-sm text-body">
         {change === 0 ? 'No change' : `${change > 0 ? '+' : ''}${change.toFixed(1)} kg`} since first entry
       </p>
 
       <ResponsiveContainer width="100%" height={190} className="mt-2">
         <ComposedChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: 4 }}>
-          <CartesianGrid strokeDasharray="3 3" className="stroke-slate-200 dark:stroke-slate-800" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" vertical={false} />
           <XAxis
             dataKey="label"
-            tick={{ fontSize: 11, fill: 'currentColor' }}
-            className="text-slate-500 dark:text-slate-400"
+            tick={{ fontSize: 12, fill: 'var(--color-muted)' }}
             tickLine={false}
             axisLine={false}
             minTickGap={24}
           />
           <YAxis
             domain={[yMin, yMax]}
-            tick={{ fontSize: 11, fill: 'currentColor' }}
-            className="text-slate-500 dark:text-slate-400"
+            tickCount={4}
+            tickFormatter={(v: number) => v.toFixed(1)}
+            tick={{ fontSize: 12, fill: 'var(--color-muted)' }}
             tickLine={false}
             axisLine={false}
-            width={32}
+            width={40}
           />
-          <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
-          <Scatter dataKey="raw" fill="#94a3b8" fillOpacity={0.5} isAnimationActive={false} name="Daily weight" />
+          <Tooltip
+            contentStyle={{
+              fontSize: 12,
+              borderRadius: 8,
+              backgroundColor: 'var(--color-raised)',
+              border: '1px solid var(--color-line)',
+              color: 'var(--color-ink)',
+            }}
+          />
+          <Scatter dataKey="raw" fill="var(--color-muted)" fillOpacity={0.5} isAnimationActive={false} name="Daily weight" />
           <Line
             type="monotone"
             dataKey="avg7"
-            stroke="#0ea5e9"
+            stroke="var(--color-accent)"
             strokeWidth={2.5}
             dot={false}
             isAnimationActive={false}

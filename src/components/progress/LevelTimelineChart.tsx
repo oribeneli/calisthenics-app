@@ -5,12 +5,12 @@ import { db } from '../../db/db'
 import { parseDateKey } from '../../lib/dates'
 import { levelTimeline } from './stats'
 
-const COLORS: Record<string, string> = {
-  push: '#0ea5e9',
-  pull: '#10b981',
-  squat: '#f59e0b',
-  hinge: '#8b5cf6',
-  core: '#f43f5e',
+const LINE_STYLE: Record<string, { stroke: string; dash?: string }> = {
+  push: { stroke: 'var(--color-accent)' },
+  pull: { stroke: 'var(--color-good)' },
+  squat: { stroke: 'var(--color-warn)' },
+  hinge: { stroke: 'var(--color-muted)' },
+  core: { stroke: 'var(--color-accent)', dash: '5 3' },
 }
 
 function dateLabel(dateKey: string): string {
@@ -30,17 +30,16 @@ export function LevelTimelineChart() {
   const maxLevels = Math.max(...program.ladders.map((l) => l.levels.length))
 
   if (points.length < 2) {
-    return <p className="text-sm text-slate-500 dark:text-slate-400">Not enough history yet to chart level changes.</p>
+    return <p className="text-sm text-muted">Set or change a ladder level to start charting its history.</p>
   }
 
   return (
     <ResponsiveContainer width="100%" height={220}>
       <LineChart data={points} margin={{ top: 4, right: 8, bottom: 0, left: -24 }}>
-        <CartesianGrid strokeDasharray="3 3" className="stroke-slate-200 dark:stroke-slate-800" vertical={false} />
+        <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" vertical={false} />
         <XAxis
           dataKey="label"
-          tick={{ fontSize: 11, fill: 'currentColor' }}
-          className="text-slate-500 dark:text-slate-400"
+          tick={{ fontSize: 12, fill: 'var(--color-muted)' }}
           tickLine={false}
           axisLine={false}
           minTickGap={24}
@@ -48,13 +47,20 @@ export function LevelTimelineChart() {
         <YAxis
           domain={[1, maxLevels]}
           allowDecimals={false}
-          tick={{ fontSize: 11, fill: 'currentColor' }}
-          className="text-slate-500 dark:text-slate-400"
+          tick={{ fontSize: 12, fill: 'var(--color-muted)' }}
           tickLine={false}
           axisLine={false}
           width={28}
         />
-        <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
+        <Tooltip
+          contentStyle={{
+            fontSize: 12,
+            borderRadius: 8,
+            backgroundColor: 'var(--color-raised)',
+            border: '1px solid var(--color-line)',
+            color: 'var(--color-ink)',
+          }}
+        />
         <Legend wrapperStyle={{ fontSize: 11 }} />
         {program.ladders.map((ladder) => (
           <Line
@@ -62,7 +68,8 @@ export function LevelTimelineChart() {
             type="stepAfter"
             dataKey={ladder.id}
             name={ladder.name}
-            stroke={COLORS[ladder.id]}
+            stroke={LINE_STYLE[ladder.id].stroke}
+            strokeDasharray={LINE_STYLE[ladder.id].dash}
             strokeWidth={2}
             dot={{ r: 2 }}
             connectNulls

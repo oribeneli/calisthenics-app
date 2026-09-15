@@ -26,11 +26,7 @@ export function DayChips({ value, onChange, disabledDays = [], className }: DayC
             onClick={() => onChange(day)}
             className={cn(
               'flex min-h-12 flex-1 items-center justify-center rounded-xl text-xs font-semibold transition-colors',
-              value === day
-                ? 'bg-sky-600 text-white'
-                : disabled
-                  ? 'bg-slate-100 text-slate-300 dark:bg-slate-900 dark:text-slate-700'
-                  : 'bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100',
+              value === day ? 'bg-accent text-on-accent' : disabled ? 'bg-inset text-muted opacity-40' : 'bg-inset text-ink',
             )}
           >
             {label}

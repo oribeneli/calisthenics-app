@@ -5,6 +5,7 @@ import { LevelCard } from '../components/program/LevelCard'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
 import { Sheet } from '../components/ui/Modal'
+import { SectionLabel } from '../components/ui/SectionLabel'
 import { useToast } from '../components/ui/toastContext'
 import { setLadderLevel } from '../app/coach'
 import { program } from '../data/program'
@@ -45,22 +46,20 @@ export default function LadderPage() {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h1 className="text-xl font-semibold">{ladder.name}</h1>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{ladder.rationale}</p>
+        <h1 className="text-xl font-semibold text-ink">{ladder.name}</h1>
+        <p className="mt-1 text-sm text-body">{ladder.rationale}</p>
       </div>
 
       {ladder.ceilingNote && (
-        <Card className="border-amber-200 bg-amber-50 dark:border-amber-900 dark:bg-amber-950/30">
-          <p className="text-sm text-amber-900 dark:text-amber-200">{ladder.ceilingNote}</p>
-        </Card>
+        <div className="rounded-2xl bg-warn-soft p-4">
+          <p className="text-sm text-warn">{ladder.ceilingNote}</p>
+        </div>
       )}
 
       {ladder.specialRegress.length > 0 && (
         <Card>
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Special regression triggers
-          </h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-300">
+          <SectionLabel>Special regression triggers</SectionLabel>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-body">
             {ladder.specialRegress.map((rule) => (
               <li key={rule}>{rule}</li>
             ))}
@@ -68,25 +67,26 @@ export default function LadderPage() {
         </Card>
       )}
 
-      <div className="flex flex-col gap-2">
+      <Card className="flex flex-col divide-y divide-line">
         {ladder.levels.map((level, index) => (
-          <LevelCard
-            key={level.id}
-            level={level}
-            index={index}
-            isCurrent={state?.currentLevelId === level.id}
-            currentWeek={currentWeek}
-            gatePassed={level.gate ? gatesPassed.includes(level.gate.key) : false}
-            onToggleGate={toggleGate}
-            onSetLevel={() => setPendingLevel(level)}
-          />
+          <div key={level.id} className="py-3 first:pt-0 last:pb-0">
+            <LevelCard
+              level={level}
+              index={index}
+              isCurrent={state?.currentLevelId === level.id}
+              currentWeek={currentWeek}
+              gatePassed={level.gate ? gatesPassed.includes(level.gate.key) : false}
+              onToggleGate={toggleGate}
+              onSetLevel={() => setPendingLevel(level)}
+            />
+          </div>
         ))}
-      </div>
+      </Card>
 
       <Sheet open={pendingLevel !== null} onClose={() => setPendingLevel(null)} title="Set as my level?">
-        <p className="text-sm text-slate-600 dark:text-slate-400">
-          This sets {ladder.name} to <span className="font-medium">{pendingLevel?.name}</span>. Your rep target
-          resets to the bottom of that level&rsquo;s range.
+        <p className="text-sm text-body">
+          This sets {ladder.name} to <span className="font-medium text-ink">{pendingLevel?.name}</span>. Your rep
+          target resets to the bottom of that level&rsquo;s range.
         </p>
         <div className="mt-4 flex flex-col gap-2">
           <Button onClick={confirmSetLevel}>Confirm</Button>

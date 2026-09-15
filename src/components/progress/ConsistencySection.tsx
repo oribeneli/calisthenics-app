@@ -9,9 +9,9 @@ function trainDaysOf(profile: { slots?: { day: number }[]; trainDays: number[] }
 }
 
 const DOT_CLASSES = {
-  done: 'bg-emerald-500 dark:bg-emerald-500',
-  missed: 'bg-slate-300 dark:bg-slate-700',
-  rest: 'bg-slate-200/70 dark:bg-slate-800/70',
+  done: 'bg-good',
+  missed: 'bg-line',
+  rest: 'bg-inset',
 } as const
 
 export function ConsistencySection() {
@@ -25,10 +25,8 @@ export function ConsistencySection() {
   return (
     <div>
       <div className="flex items-baseline gap-2">
-        <span className="text-3xl font-semibold tabular-nums text-slate-900 dark:text-slate-100">
-          {result.pct}%
-        </span>
-        <span className="text-sm text-slate-500 dark:text-slate-400">
+        <span className="num text-[36px] text-ink">{result.pct}%</span>
+        <span className="num text-sm text-muted">
           {result.doneCount} of {result.scheduledCount} scheduled sessions, last 28 days
         </span>
       </div>
@@ -43,7 +41,7 @@ export function ConsistencySection() {
         ))}
       </div>
 
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="num mt-2 text-sm text-body">
         Weeks with 2+ sessions: {result.weeksWithTwoPlus} of {result.totalWeeks}
       </p>
     </div>

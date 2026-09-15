@@ -7,10 +7,10 @@ import { habitRates } from './stats'
 const WEEKS = 8
 
 function intensityClass(fraction: number): string {
-  if (fraction === 0) return 'bg-slate-100 dark:bg-slate-900'
-  if (fraction <= 0.34) return 'bg-sky-200 dark:bg-sky-900'
-  if (fraction <= 0.67) return 'bg-sky-400 dark:bg-sky-700'
-  return 'bg-sky-600 dark:bg-sky-500'
+  if (fraction === 0) return 'bg-inset'
+  if (fraction <= 0.34) return 'bg-good/30'
+  if (fraction <= 0.67) return 'bg-good/65'
+  return 'bg-good'
 }
 
 export function HabitsHeatmap() {
@@ -45,7 +45,7 @@ export function HabitsHeatmap() {
           <tbody>
             {program.habits.map((def) => (
               <tr key={def.key}>
-                <td className="w-28 pr-2 text-xs text-slate-600 dark:text-slate-400">{def.label}</td>
+                <td className="w-28 pr-2 text-xs text-body">{def.label}</td>
                 {weekFractions[def.key].map((frac, i) => (
                   <td key={i} className="p-0">
                     <span
@@ -54,7 +54,7 @@ export function HabitsHeatmap() {
                     />
                   </td>
                 ))}
-                <td className="pl-2 text-xs tabular-nums text-slate-500 dark:text-slate-400">
+                <td className="num pl-2 text-xs text-muted">
                   {rates.find((r) => r.key === def.key)?.pct28}%
                 </td>
               </tr>
@@ -62,7 +62,7 @@ export function HabitsHeatmap() {
           </tbody>
         </table>
       </div>
-      <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+      <p className="mt-2 text-xs text-muted">
         Each square is one week (oldest to newest, left to right). Percentage is the last 28 days.
       </p>
     </div>

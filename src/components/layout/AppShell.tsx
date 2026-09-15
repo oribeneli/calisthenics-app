@@ -76,11 +76,11 @@ const NAV_ITEMS: NavItem[] = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-slate-950">
+    <div className="flex min-h-screen flex-col bg-ground">
       <main className="safe-top mx-auto w-full max-w-md flex-1 px-4 pb-24 pt-4">{children}</main>
       <nav
         aria-label="Primary"
-        className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95"
+        className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-line bg-raised/95 backdrop-blur"
       >
         <div className="mx-auto flex max-w-md">
           {NAV_ITEMS.map((item) => (
@@ -92,8 +92,8 @@ export function AppShell({ children }: { children: ReactNode }) {
                 cn(
                   'flex min-h-12 flex-1 flex-col items-center justify-center gap-0.5 py-2 text-xs font-medium',
                   isActive
-                    ? 'text-sky-600 dark:text-sky-400'
-                    : 'text-slate-500 dark:text-slate-400',
+                    ? 'text-accent'
+                    : 'text-muted',
                 )
               }
             >

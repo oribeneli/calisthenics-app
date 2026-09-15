@@ -18,13 +18,14 @@ export function TooHardSheet({
 }) {
   return (
     <Sheet open={open} onClose={onClose} title="Switch to an easier level?">
-      <p className="text-sm text-slate-600 dark:text-slate-300">
+      <p className="text-sm text-body">
         {previousLevel
-          ? `The rest of ${currentLevel.name} today will use ${previousLevel.name} instead. This is just today's setting — it doesn't erase your progress.`
+          ? `The rest of ${currentLevel.name} today will use ${previousLevel.name} instead. This is just today's setting, it doesn't erase your progress.`
           : `${currentLevel.name} is already the easiest version of this move. The rest of today, just do fewer reps.`}
       </p>
       <div className="mt-4 flex flex-col gap-2">
         <Button
+          size="xl"
           className="w-full"
           onClick={() => {
             onConfirm()
@@ -33,7 +34,7 @@ export function TooHardSheet({
         >
           {previousLevel ? `Switch to ${previousLevel.name}` : 'Okay, fewer reps'}
         </Button>
-        <Button variant="ghost" className="w-full" onClick={onClose}>
+        <Button variant="ghost" size="xl" className="w-full" onClick={onClose}>
           Cancel
         </Button>
       </div>

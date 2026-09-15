@@ -7,6 +7,7 @@ import { NumberStepper } from '../components/ui/NumberStepper'
 import { Slider1to5 } from '../components/ui/Slider1to5'
 import { Toggle } from '../components/ui/Toggle'
 import { useToast } from '../components/ui/toastContext'
+import { SectionLabel } from '../components/ui/SectionLabel'
 import { HabitList } from '../components/checkin/HabitList'
 import { cn } from '../lib/cn'
 import { todayKey } from '../lib/dates'
@@ -91,10 +92,8 @@ export default function CheckinPage() {
   return (
     <div className="flex flex-col gap-4 pb-2">
       <div>
-        <h1 className="text-xl font-semibold">Check-in</h1>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-          20 seconds, once a day — it shapes today&rsquo;s plan.
-        </p>
+        <h1 className="text-xl font-semibold text-ink">Check-in</h1>
+        <p className="mt-1 text-sm text-body">20 seconds, once a day, it shapes today&rsquo;s plan.</p>
       </div>
 
       <Card className="flex flex-col gap-4">
@@ -123,7 +122,7 @@ export default function CheckinPage() {
         />
         {soreness >= 4 && (
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-slate-600 dark:text-slate-400">Where?</span>
+            <SectionLabel>Where?</SectionLabel>
             <div className="flex flex-wrap gap-2">
               {SORE_AREAS.map((area) => {
                 const active = soreAreas.includes(area.id)
@@ -135,9 +134,7 @@ export default function CheckinPage() {
                     onClick={() => toggleSoreArea(area.id)}
                     className={cn(
                       'min-h-12 rounded-xl px-3 text-sm font-medium transition-colors',
-                      active
-                        ? 'bg-sky-600 text-white'
-                        : 'bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100',
+                      active ? 'bg-accent text-on-accent' : 'bg-inset text-ink',
                     )}
                   >
                     {area.label}
@@ -154,20 +151,18 @@ export default function CheckinPage() {
         {logWeight ? (
           <NumberStepper value={weightKg} onChange={setWeightKg} min={30} max={250} step={0.1} />
         ) : (
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-muted">
             Skipped today
-            {lastWeightEntry?.weightKg !== undefined ? ` — last was ${lastWeightEntry.weightKg} kg` : ''}.
+            {lastWeightEntry?.weightKg !== undefined ? `, last was ${lastWeightEntry.weightKg} kg` : ''}.
           </p>
         )}
-        <p className="text-xs text-slate-500 dark:text-slate-400">
-          Only the 7-day average is shown on Progress; single days are noise.
-        </p>
+        <p className="text-xs text-muted">Only the 7-day average is shown on Progress; single days are noise.</p>
       </Card>
 
       <Button onClick={handleSave}>{existing ? 'Update' : 'Save check-in'}</Button>
 
       <div>
-        <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">Today&rsquo;s habits</h2>
+        <SectionLabel>Today&rsquo;s habits</SectionLabel>
         <Card className="mt-2">
           <HabitList date={date} />
         </Card>

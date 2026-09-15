@@ -5,9 +5,10 @@ import { Sheet } from '../ui/Modal'
 export function EndEarlySheet({ open, onClose, onConfirm }: { open: boolean; onClose: () => void; onConfirm: () => void }) {
   return (
     <Sheet open={open} onClose={onClose} title="End the session here?">
-      <p className="text-sm text-slate-600 dark:text-slate-300">Stopping early still counts.</p>
+      <p className="text-sm text-body">Stopping early still counts.</p>
       <div className="mt-4 flex flex-col gap-2">
         <Button
+          size="xl"
           className="w-full"
           onClick={() => {
             onConfirm()
@@ -16,7 +17,7 @@ export function EndEarlySheet({ open, onClose, onConfirm }: { open: boolean; onC
         >
           End session
         </Button>
-        <Button variant="ghost" className="w-full" onClick={onClose}>
+        <Button variant="ghost" size="xl" className="w-full" onClick={onClose}>
           Keep going
         </Button>
       </div>

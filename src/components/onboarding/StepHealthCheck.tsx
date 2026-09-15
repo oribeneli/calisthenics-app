@@ -19,65 +19,59 @@ export function StepHealthCheck({ draft, onChange }: StepHealthCheckProps) {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h1 className="text-xl font-semibold">Health check</h1>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-          The PAR-Q+ readiness questions, plus a few we add for this program.
-        </p>
+        <h1 className="text-xl font-semibold text-ink">Health check</h1>
+        <p className="mt-1 text-sm text-body">The PAR-Q+ readiness questions, plus a few we add for this program.</p>
       </div>
 
       {verdict.blocked && (
-        <Card className="border-amber-300 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/40">
-          <h2 className="text-base font-semibold text-amber-900 dark:text-amber-200">
-            See a doctor before starting
-          </h2>
-          <p className="mt-1 text-sm text-amber-900 dark:text-amber-200">
-            You answered yes to:
-          </p>
-          <ul className="mt-1 list-disc pl-5 text-sm text-amber-900 dark:text-amber-200">
+        <Card variant="plain" className="rounded-2xl bg-danger-soft p-4">
+          <h2 className="text-base font-semibold text-danger">See a doctor before starting</h2>
+          <p className="mt-1 text-sm text-ink">You answered yes to:</p>
+          <ul className="mt-1 list-disc pl-5 text-sm text-ink">
             {verdict.hardHits.map((q) => (
               <li key={q.id}>{q.text}</li>
             ))}
           </ul>
-          <p className="mt-2 text-sm text-amber-900 dark:text-amber-200">
-            Get clearance first — this is about that specific answer, not about your weight or
-            fitness level. Body weight alone is never a reason to wait. You can flip the answer back
-            once you&rsquo;ve checked with a doctor, or once you have their go-ahead.
+          <p className="mt-2 text-sm text-ink">
+            Get clearance first, this is about that specific answer, not about your weight or fitness level. Body
+            weight alone is never a reason to wait. You can flip the answer back once you&rsquo;ve checked with a
+            doctor, or once you have their go-ahead.
           </p>
         </Card>
       )}
 
-      <div className="flex flex-col gap-3">
+      <Card className="divide-y divide-line">
         {program.screening.map((q) => {
           const answer = draft.screening[q.id]
           return (
-            <Card key={q.id} className="flex flex-col gap-2">
-              <p className="text-sm text-slate-900 dark:text-slate-100">{q.text}</p>
+            <div key={q.id} className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0">
+              <p className="text-sm text-ink">{q.text}</p>
               <SegmentedYesNo value={answer} onChange={(v) => setAnswer(q.id, v)} ariaLabel={q.text} />
               {answer === true && q.gate === 'soft' && (
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="rounded-lg bg-warn-soft p-2 text-xs text-ink">
                   Worth getting clearance from a doctor before starting.
                 </p>
               )}
               {answer === true && q.gate === 'advisory' && (
-                <p className="text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-muted">
                   Worth mentioning next time you see a doctor. This alone won&rsquo;t change your program.
                 </p>
               )}
               {answer === true && q.gate === 'adapt' && q.note && (
-                <p className="text-xs text-slate-600 dark:text-slate-400">{q.note}</p>
+                <p className="rounded-lg bg-warn-soft p-2 text-xs text-ink">{q.note}</p>
               )}
-            </Card>
+            </div>
           )
         })}
-      </div>
+      </Card>
 
-      <p className="text-xs text-slate-500 dark:text-slate-400">
-        If you feel unwell today, or think you might be pregnant, hold off starting until you&rsquo;ve
-        spoken with a doctor.
+      <p className="text-xs text-muted">
+        If you feel unwell today, or think you might be pregnant, hold off starting until you&rsquo;ve spoken with a
+        doctor.
       </p>
-      <p className="text-xs text-slate-500 dark:text-slate-400">
-        Not medical advice. A hypermobile shoulder with symptomatic winging is worth one physiotherapy
-        assessment before starting.
+      <p className="text-xs text-muted">
+        Not medical advice. A hypermobile shoulder with symptomatic winging is worth one physiotherapy assessment
+        before starting.
       </p>
     </div>
   )

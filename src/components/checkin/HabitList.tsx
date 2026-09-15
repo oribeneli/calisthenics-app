@@ -27,7 +27,7 @@ export function HabitList({ date }: HabitListProps) {
   }
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col divide-y divide-line">
       {program.habits.map((habit) => (
         <Toggle
           key={habit.key}

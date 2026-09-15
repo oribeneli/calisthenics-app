@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Bar, CartesianGrid, ComposedChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { db } from '../../db/db'
 import { parseDateKey, todayKey } from '../../lib/dates'
 import { weeklyVolume } from './stats'
@@ -15,54 +15,49 @@ export function WeeklyVolumeChart() {
   if (!sessions || !setLogs) return null
 
   const points = weeklyVolume(sessions, setLogs, todayKey(), 8).map((p) => ({ ...p, label: weekLabel(p.weekStart) }))
+  const hasVolume = points.some((p) => p.volume > 0)
+
+  if (!hasVolume) {
+    return <p className="text-sm text-muted">Log two more sessions to see the trend.</p>
+  }
 
   return (
     <div>
       <ResponsiveContainer width="100%" height={200}>
-        <ComposedChart data={points} margin={{ top: 4, right: 4, bottom: 0, left: -4 }}>
-          <CartesianGrid strokeDasharray="3 3" className="stroke-slate-200 dark:stroke-slate-800" vertical={false} />
+        <BarChart data={points} margin={{ top: 16, right: 4, bottom: 0, left: -4 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" vertical={false} />
           <XAxis
             dataKey="label"
-            tick={{ fontSize: 11, fill: 'currentColor' }}
-            className="text-slate-500 dark:text-slate-400"
+            tick={{ fontSize: 12, fill: 'var(--color-muted)' }}
             tickLine={false}
             axisLine={false}
             interval={1}
           />
-          <YAxis
-            yAxisId="volume"
-            tick={{ fontSize: 11, fill: 'currentColor' }}
-            className="text-slate-500 dark:text-slate-400"
-            tickLine={false}
-            axisLine={false}
-            width={36}
-          />
-          <YAxis
-            yAxisId="sessions"
-            orientation="right"
-            allowDecimals={false}
-            tick={{ fontSize: 11, fill: 'currentColor' }}
-            className="text-slate-500 dark:text-slate-400"
-            tickLine={false}
-            axisLine={false}
-            width={24}
-          />
+          <YAxis tick={{ fontSize: 12, fill: 'var(--color-muted)' }} tickLine={false} axisLine={false} width={36} />
           <Tooltip
-            contentStyle={{ fontSize: 12, borderRadius: 8 }}
-            formatter={(value: number, name: string) => [value, name === 'volume' ? 'Reps + seconds' : 'Sessions']}
+            contentStyle={{
+              fontSize: 12,
+              borderRadius: 8,
+              backgroundColor: 'var(--color-raised)',
+              border: '1px solid var(--color-line)',
+              color: 'var(--color-ink)',
+            }}
+            formatter={(value: number, name: string, item) => [
+              `${value} (${item.payload.sessions} session${item.payload.sessions === 1 ? '' : 's'})`,
+              name,
+            ]}
           />
-          <Bar yAxisId="volume" dataKey="volume" fill="#0ea5e9" radius={[3, 3, 0, 0]} maxBarSize={14} name="volume" />
-          <Bar yAxisId="sessions" dataKey="sessions" fill="#10b981" radius={[3, 3, 0, 0]} maxBarSize={6} name="sessions" />
-        </ComposedChart>
+          <Bar dataKey="volume" fill="var(--color-accent)" radius={[3, 3, 0, 0]} maxBarSize={20} name="Reps + seconds">
+            <LabelList
+              dataKey="sessions"
+              position="top"
+              formatter={(v: number) => (v > 0 ? v : '')}
+              style={{ fontSize: 11, fill: 'var(--color-muted)' }}
+            />
+          </Bar>
+        </BarChart>
       </ResponsiveContainer>
-      <div className="mt-1 flex gap-4 text-xs text-slate-500 dark:text-slate-400">
-        <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-sky-500" /> Reps + seconds logged
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" /> Sessions
-        </span>
-      </div>
+      <p className="num mt-1 text-xs text-muted">Reps + seconds logged per week. Number above a bar is sessions done.</p>
     </div>
   )
 }

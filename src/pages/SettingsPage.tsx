@@ -78,28 +78,24 @@ export default function SettingsPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-xl font-semibold">Settings</h1>
+      <h1 className="text-xl font-semibold text-ink">Settings</h1>
 
       <Card>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Profile
-        </h2>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+        <h2 className="text-base font-semibold text-ink">Profile</h2>
+        <p className="mt-1 text-sm text-body">
           Update your details, or re-do the health check after a break.
         </p>
         <Link
           to="/onboarding"
-          className="mt-3 inline-flex min-h-12 items-center justify-center rounded-xl bg-slate-200 px-4 text-sm font-medium text-slate-900 hover:bg-slate-300 active:bg-slate-400 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+          className="pressable mt-3 inline-flex min-h-12 items-center justify-center rounded-xl bg-inset px-4 text-sm font-medium text-ink hover:bg-line/70"
         >
           Edit profile & health check
         </Link>
       </Card>
 
       <Card>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Backup
-        </h2>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+        <h2 className="text-base font-semibold text-ink">Backup</h2>
+        <p className="mt-1 text-sm text-body">
           Export a full JSON backup, or restore from a previous one.
         </p>
         <div className="mt-3 flex flex-col gap-2">
@@ -127,18 +123,16 @@ export default function SettingsPage() {
       </Card>
 
       <Card>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Appearance
-        </h2>
+        <h2 className="text-base font-semibold text-ink">Appearance</h2>
         <div className="mt-3 flex flex-col gap-1">
-          <label htmlFor="theme-select" className="text-sm text-slate-600 dark:text-slate-400">
+          <label htmlFor="theme-select" className="text-sm text-body">
             Dark mode
           </label>
           <select
             id="theme-select"
             value={theme}
             onChange={(event) => handleThemeChange(event.target.value as ThemeSetting)}
-            className="min-h-12 rounded-xl border border-slate-300 bg-white px-3 text-base dark:border-slate-700 dark:bg-slate-800"
+            className="min-h-12 rounded-xl border border-line bg-inset px-3 text-base text-ink"
           >
             <option value="system">System</option>
             <option value="light">Light</option>
@@ -148,40 +142,34 @@ export default function SettingsPage() {
       </Card>
 
       <Card>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Units
-        </h2>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Metric (kg, cm) — only option for now.</p>
+        <h2 className="text-base font-semibold text-ink">Units</h2>
+        <p className="mt-1 text-sm text-body">Metric (kg, cm), only option for now.</p>
       </Card>
 
       <Card>
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Install app
-        </h2>
+        <h2 className="text-base font-semibold text-ink">Install app</h2>
         {isAppInstalled() ? (
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Already installed.</p>
+          <p className="mt-1 text-sm text-body">Already installed.</p>
         ) : installAvailable ? (
           <div className="mt-3">
             <Button onClick={handleInstallClick}>Install app</Button>
           </div>
         ) : isIOS() ? (
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mt-1 text-sm text-body">
             On iPhone/iPad: tap the Share icon in Safari, then &ldquo;Add to Home
             Screen&rdquo;.
           </p>
         ) : (
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+          <p className="mt-1 text-sm text-body">
             Use your browser&rsquo;s menu and look for &ldquo;Install app&rdquo; or &ldquo;Add
             to Home Screen&rdquo;.
           </p>
         )}
       </Card>
 
-      <Card className="border-red-200 dark:border-red-900">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-red-600 dark:text-red-400">
-          Danger zone
-        </h2>
-        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+      <Card className="border-danger/30">
+        <h2 className="text-base font-semibold text-danger">Danger zone</h2>
+        <p className="mt-1 text-sm text-body">
           Permanently deletes all local data on this device. Export a backup first.
         </p>
         <div className="mt-3">
@@ -192,7 +180,7 @@ export default function SettingsPage() {
       </Card>
 
       <Sheet open={resetSheetOpen} onClose={() => setResetSheetOpen(false)} title="Reset all data?">
-        <p className="text-sm text-slate-600 dark:text-slate-400">
+        <p className="text-sm text-body">
           This deletes your profile, check-ins, sessions, logs and photos from this device.
           This cannot be undone unless you have an exported backup.
         </p>

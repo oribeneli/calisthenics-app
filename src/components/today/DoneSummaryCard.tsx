@@ -1,5 +1,6 @@
 import type { Session, SetLog } from '../../db/types'
 import { Card } from '../ui/Card'
+import { SectionLabel } from '../ui/SectionLabel'
 
 const WEEKDAY_NAMES = [
   'Sunday',
@@ -38,32 +39,28 @@ export function DoneSummaryCard({
 
   return (
     <Card>
-      <h1 className="text-xl font-semibold">Nice work today</h1>
+      <h1 className="text-xl font-semibold text-ink">Nice work today</h1>
       <dl className="mt-3 grid grid-cols-2 gap-3">
         <div>
-          <dt className="text-xs text-slate-500 dark:text-slate-400">Sets logged</dt>
-          <dd className="text-lg font-semibold">{setLogs.length}</dd>
+          <dt className="text-xs text-muted">Sets logged</dt>
+          <dd className="num text-2xl text-ink">{setLogs.length}</dd>
         </div>
         <div>
-          <dt className="text-xs text-slate-500 dark:text-slate-400">RPE</dt>
-          <dd className="text-lg font-semibold">{session.rpe ?? '—'}</dd>
+          <dt className="text-xs text-muted">RPE</dt>
+          <dd className="num text-2xl text-ink">{session.rpe ?? '—'}</dd>
         </div>
       </dl>
       {bullets.length > 0 && (
         <div className="mt-4">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            What changed
-          </h2>
-          <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-slate-700 dark:text-slate-200">
+          <SectionLabel>What changed</SectionLabel>
+          <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-body">
             {bullets.map((b, i) => (
               <li key={i}>{b}</li>
             ))}
           </ul>
         </div>
       )}
-      {nextDay && (
-        <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">Next session: {nextDay}</p>
-      )}
+      {nextDay && <p className="mt-4 text-sm text-body">Next session: {nextDay}</p>}
     </Card>
   )
 }

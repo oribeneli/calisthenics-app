@@ -35,11 +35,11 @@ function PhotoThumb({ photo, onDelete }: { photo: Photo; onDelete: (id: number) 
         type="button"
         aria-label="Delete photo"
         onClick={() => photo.id !== undefined && onDelete(photo.id)}
-        className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-xs text-white"
+        className="pressable absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-xs text-white"
       >
         ✕
       </button>
-      <p className="mt-1 text-center text-[11px] text-slate-500 dark:text-slate-400">{dateLabel(photo.date)}</p>
+      <p className="mt-1 text-center text-[11px] text-muted">{dateLabel(photo.date)}</p>
     </div>
   )
 }
@@ -57,11 +57,11 @@ function ViewSection({ view, photos, onAdd, onDelete }: {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200">{VIEW_LABELS[view]}</h3>
+        <h3 className="text-sm font-semibold text-ink">{VIEW_LABELS[view]}</h3>
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
-          className="min-h-9 rounded-lg bg-slate-200 px-3 text-sm font-medium text-slate-900 dark:bg-slate-800 dark:text-slate-100"
+          className="pressable min-h-12 rounded-lg bg-inset px-3 text-sm font-medium text-ink"
         >
           Add photo
         </button>
@@ -80,17 +80,17 @@ function ViewSection({ view, photos, onAdd, onDelete }: {
       </div>
 
       {photos.length === 0 ? (
-        <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">No {VIEW_LABELS[view].toLowerCase()} photos yet.</p>
+        <p className="mt-2 text-sm text-muted">No {VIEW_LABELS[view].toLowerCase()} photos yet. Add one to start tracking.</p>
       ) : (
         <>
           {photos.length >= 2 && (
             <div className="mt-2 flex gap-3">
               <div>
-                <p className="mb-1 text-xs text-slate-500 dark:text-slate-400">Earliest</p>
+                <p className="mb-1 text-xs text-muted">Earliest</p>
                 <PhotoThumb photo={earliest} onDelete={onDelete} />
               </div>
               <div>
-                <p className="mb-1 text-xs text-slate-500 dark:text-slate-400">Latest</p>
+                <p className="mb-1 text-xs text-muted">Latest</p>
                 <PhotoThumb photo={latest} onDelete={onDelete} />
               </div>
             </div>
@@ -126,7 +126,7 @@ export function PhotosSection() {
   return (
     <div>
       <Toggle checked={enabled} onChange={toggle} label="Track progress photos" />
-      <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Photos stay on this device.</p>
+      <p className="mt-1 text-xs text-muted">Photos stay on this device.</p>
 
       {enabled && photos && (
         <div className="mt-4 flex flex-col gap-5">

@@ -12,7 +12,7 @@ export function StickyBottomBar({ children, className }: { children: ReactNode; 
     <div className="fixed inset-x-0 bottom-16 z-30 flex justify-center">
       <div
         className={cn(
-          'w-full max-w-md bg-gradient-to-t from-slate-50 from-70% to-transparent px-4 pb-2 pt-6 dark:from-slate-950',
+          'w-full max-w-md bg-gradient-to-t from-ground from-70% to-transparent px-4 pb-2 pt-6',
           className,
         )}
       >

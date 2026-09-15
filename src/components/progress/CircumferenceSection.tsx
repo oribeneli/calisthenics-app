@@ -5,6 +5,7 @@ import { Button } from '../ui/Button'
 import { Card } from '../ui/Card'
 import { NumberStepper } from '../ui/NumberStepper'
 import { Sheet } from '../ui/Modal'
+import { SectionLabel } from '../ui/SectionLabel'
 import { useToast } from '../ui/toastContext'
 import { db } from '../../db/db'
 import { parseDateKey, todayKey } from '../../lib/dates'
@@ -39,6 +40,14 @@ export function CircumferenceSection() {
   const armDomain: [number, number] = armValues.length
     ? [Math.floor(Math.min(...armValues) - 3), Math.ceil(Math.max(...armValues) + 3)]
     : [20, 50]
+  const tooltipStyle = {
+    fontSize: 12,
+    borderRadius: 8,
+    backgroundColor: 'var(--color-raised)',
+    border: '1px solid var(--color-line)',
+    color: 'var(--color-ink)',
+  }
+  const axisTick = { fontSize: 12, fill: 'var(--color-muted)' }
 
   function openSheet() {
     setWaist(latest?.waistCm ?? 90)
@@ -57,11 +66,11 @@ export function CircumferenceSection() {
   return (
     <div>
       <div className="flex items-center justify-between gap-2">
-        <p className="text-sm text-slate-600 dark:text-slate-400">
+        <p className="num text-sm text-body">
           {latest
             ? `Last measured ${lastMeasuredDays === 0 ? 'today' : `${lastMeasuredDays} day${lastMeasuredDays === 1 ? '' : 's'} ago`}`
             : 'No measurements yet'}
-          {' '}&middot; suggested every 2 weeks
+          {', suggested every 2 weeks'}
         </p>
         <Button size="md" onClick={openSheet}>
           Add
@@ -69,54 +78,43 @@ export function CircumferenceSection() {
       </div>
 
       {points.length > 0 ? (
-        <ResponsiveContainer width="100%" height={200} className="mt-3">
-          <LineChart data={points} margin={{ top: 4, right: 0, bottom: 0, left: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-slate-200 dark:stroke-slate-800" vertical={false} />
-            <XAxis
-              dataKey="label"
-              tick={{ fontSize: 11, fill: 'currentColor' }}
-              className="text-slate-500 dark:text-slate-400"
-              tickLine={false}
-              axisLine={false}
-              minTickGap={24}
-            />
-            <YAxis
-              yAxisId="torso"
-              domain={torsoDomain}
-              tick={{ fontSize: 11, fill: 'currentColor' }}
-              className="text-slate-500 dark:text-slate-400"
-              tickLine={false}
-              axisLine={false}
-              width={32}
-            />
-            <YAxis
-              yAxisId="arm"
-              orientation="right"
-              domain={armDomain}
-              tick={{ fontSize: 11, fill: 'currentColor' }}
-              className="text-slate-500 dark:text-slate-400"
-              tickLine={false}
-              axisLine={false}
-              width={28}
-            />
-            <Tooltip contentStyle={{ fontSize: 12, borderRadius: 8 }} />
-            <Legend wrapperStyle={{ fontSize: 11 }} />
-            <Line yAxisId="torso" type="monotone" dataKey="waistCm" name="Waist" stroke="#0ea5e9" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
-            <Line yAxisId="torso" type="monotone" dataKey="hipCm" name="Hip" stroke="#10b981" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
-            <Line yAxisId="torso" type="monotone" dataKey="chestCm" name="Chest" stroke="#f59e0b" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
-            <Line yAxisId="arm" type="monotone" dataKey="armCm" name="Arm" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
-          </LineChart>
-        </ResponsiveContainer>
+        <div className="mt-3 flex flex-col gap-4">
+          <div>
+            <SectionLabel className="text-xs">Waist, hip, chest (cm)</SectionLabel>
+            <ResponsiveContainer width="100%" height={170}>
+              <LineChart data={points} margin={{ top: 4, right: 0, bottom: 0, left: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" vertical={false} />
+                <XAxis dataKey="label" tick={axisTick} tickLine={false} axisLine={false} minTickGap={24} />
+                <YAxis domain={torsoDomain} tick={axisTick} tickLine={false} axisLine={false} width={32} />
+                <Tooltip contentStyle={tooltipStyle} />
+                <Legend wrapperStyle={{ fontSize: 11 }} />
+                <Line type="monotone" dataKey="waistCm" name="Waist" stroke="var(--color-accent)" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
+                <Line type="monotone" dataKey="hipCm" name="Hip" stroke="var(--color-good)" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
+                <Line type="monotone" dataKey="chestCm" name="Chest" stroke="var(--color-muted)" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <div>
+            <SectionLabel className="text-xs">Arm (cm)</SectionLabel>
+            <ResponsiveContainer width="100%" height={130}>
+              <LineChart data={points} margin={{ top: 4, right: 0, bottom: 0, left: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" vertical={false} />
+                <XAxis dataKey="label" tick={axisTick} tickLine={false} axisLine={false} minTickGap={24} />
+                <YAxis domain={armDomain} tick={axisTick} tickLine={false} axisLine={false} width={32} />
+                <Tooltip contentStyle={tooltipStyle} />
+                <Line type="monotone" dataKey="armCm" name="Arm" stroke="var(--color-accent)" strokeWidth={2} dot={{ r: 2 }} connectNulls isAnimationActive={false} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
       ) : (
-        <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">Add your first measurement to start the chart.</p>
+        <p className="mt-3 text-sm text-muted">Add your first measurement to start the chart.</p>
       )}
 
       <Sheet open={open} onClose={() => setOpen(false)} title="Add measurement">
-        <Card className="border-slate-100 bg-slate-50 dark:border-slate-800 dark:bg-slate-950">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Waist protocol
-          </p>
-          <ol className="mt-1 list-decimal space-y-0.5 pl-4 text-sm text-slate-600 dark:text-slate-400">
+        <Card variant="inset">
+          <SectionLabel>Waist protocol</SectionLabel>
+          <ol className="mt-1 list-decimal space-y-0.5 pl-4 text-sm text-body">
             <li>Tape at the top of the iliac crest (hip bone)</li>
             <li>Keep the tape parallel to the floor, all the way around</li>
             <li>Breathe out normally before reading the tape</li>

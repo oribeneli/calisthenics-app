@@ -7,57 +7,50 @@ import { LevelTimelineChart } from '../components/progress/LevelTimelineChart'
 import { PhotosSection } from '../components/progress/PhotosSection'
 import { WeeklyVolumeChart } from '../components/progress/WeeklyVolumeChart'
 import { Card } from '../components/ui/Card'
-
-function SectionTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-      {children}
-    </h2>
-  )
-}
+import { SectionLabel } from '../components/ui/SectionLabel'
 
 export default function ProgressPage() {
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-xl font-semibold">Progress</h1>
+      <h1 className="text-xl font-semibold text-ink">Progress</h1>
 
       <Card>
-        <SectionTitle>Levels</SectionTitle>
+        <SectionLabel className="mb-3">Levels</SectionLabel>
         <LevelHeadline />
       </Card>
 
       <Card>
-        <SectionTitle>Consistency</SectionTitle>
+        <SectionLabel className="mb-3">Consistency</SectionLabel>
         <ConsistencySection />
       </Card>
 
       <Card>
-        <SectionTitle>Weekly volume</SectionTitle>
+        <SectionLabel className="mb-3">Weekly volume</SectionLabel>
         <WeeklyVolumeChart />
       </Card>
 
       <Card>
-        <SectionTitle>Level over time</SectionTitle>
+        <SectionLabel className="mb-3">Level over time</SectionLabel>
         <LevelTimelineChart />
       </Card>
 
       <Card>
-        <SectionTitle>Body weight</SectionTitle>
+        <SectionLabel className="mb-3">Body weight</SectionLabel>
         <BodyWeightSection />
       </Card>
 
       <Card>
-        <SectionTitle>Circumferences</SectionTitle>
+        <SectionLabel className="mb-3">Circumferences</SectionLabel>
         <CircumferenceSection />
       </Card>
 
       <Card>
-        <SectionTitle>Progress photos</SectionTitle>
+        <SectionLabel className="mb-3">Progress photos</SectionLabel>
         <PhotosSection />
       </Card>
 
       <Card>
-        <SectionTitle>Habits</SectionTitle>
+        <SectionLabel className="mb-3">Habits</SectionLabel>
         <HabitsHeatmap />
       </Card>
     </div>

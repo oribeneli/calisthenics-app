@@ -17,12 +17,12 @@ export function ExportReminder() {
   }, [])
   if (!state?.due) return null
   return (
-    <Card className="border border-amber-300/60 bg-amber-50 dark:border-amber-700/60 dark:bg-amber-950/40">
-      <p className="text-sm">
+    <Card variant="plain" className="rounded-2xl bg-warn-soft p-4">
+      <p className="text-sm text-ink">
         <span className="font-semibold">Backup reminder.</span>{' '}
         {state.never ? 'No backup has been exported yet.' : `Last backup was ${state.days} days ago.`} Your data lives only on this device.
       </p>
-      <Link to="/settings" className="mt-2 inline-block text-sm font-medium text-sky-700 underline dark:text-sky-300">
+      <Link to="/settings" className="mt-2 inline-block text-sm font-medium text-warn underline">
         Export a backup in Settings
       </Link>
     </Card>

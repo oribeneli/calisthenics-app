@@ -3,16 +3,19 @@ import type { Level } from '../../data/types'
 import { Button } from '../ui/Button'
 import { Card } from '../ui/Card'
 import { NumberStepper } from '../ui/NumberStepper'
+import { ProgressRing } from '../ui/ProgressRing'
+import { SectionLabel } from '../ui/SectionLabel'
 import { StickyBottomBar } from './StickyBottomBar'
 
-function HoldTimer({ running, onToggle, seconds }: { running: boolean; onToggle: () => void; seconds: number }) {
+/** Read-only ring; the start/stop control lives in the sticky bottom bar so it never
+ * competes for space with "Log set". */
+function HoldRing({ seconds, target }: { seconds: number; target: number }) {
+  const progress = target > 0 ? Math.min(1, seconds / target) : 0
   return (
-    <div className="flex items-center justify-between rounded-xl bg-slate-100 p-3 dark:bg-slate-800">
-      <span className="text-2xl font-semibold tabular-nums">{seconds}s</span>
-      <Button size="md" variant={running ? 'danger' : 'primary'} onClick={onToggle}>
-        {running ? 'Stop' : 'Start hold'}
-      </Button>
-    </div>
+    <ProgressRing progress={progress} size={200} tone="good" className="mx-auto">
+      <span className="num text-5xl text-ink">{seconds}</span>
+      <span className="text-sm text-muted">seconds</span>
+    </ProgressRing>
   )
 }
 
@@ -81,69 +84,82 @@ export function ExerciseStepCard({
     }
   }
 
-  const targetLabel = unit === 'sec' ? `${target} s hold` : `${target} ${target === 1 ? 'rep' : 'reps'}`
+  const targetUnitLabel = unit === 'sec' ? (target === 1 ? 'second target' : 'seconds target') : target === 1 ? 'rep target' : 'reps target'
 
   return (
     <>
       <Card>
-        <p className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          {patternName}
-        </p>
+        <SectionLabel>{patternName}</SectionLabel>
         <div className="mt-0.5 flex items-baseline justify-between gap-2">
-          <h1 className="text-xl font-semibold">{level.name}</h1>
-          <span className="shrink-0 text-xs text-slate-500 dark:text-slate-400">
+          <h1 className="text-xl font-semibold text-ink">{level.name}</h1>
+          <span className="num shrink-0 text-xs text-muted">
             L{levelNumber} of {totalLevels}
           </span>
         </div>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{level.setup}</p>
-        <ul className="mt-2 list-disc space-y-0.5 pl-5 text-sm text-slate-700 dark:text-slate-200">
+        <p className="mt-2 text-sm text-body">{level.setup}</p>
+        <ul className="mt-2 list-disc space-y-0.5 pl-5 text-sm text-body">
           {level.cues.map((cue) => (
             <li key={cue}>{cue}</li>
           ))}
         </ul>
         <details className="mt-2">
-          <summary className="min-h-8 cursor-pointer text-sm font-medium text-slate-500 dark:text-slate-400">
-            Common faults
-          </summary>
-          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-sm text-slate-600 dark:text-slate-300">
+          <summary className="min-h-8 cursor-pointer text-sm font-medium text-muted">Common faults</summary>
+          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-sm text-muted">
             {level.faults.map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>
         </details>
-        {note && (
-          <p className="mt-2 rounded-lg bg-amber-50 p-2 text-xs text-amber-800 dark:bg-amber-950/40 dark:text-amber-300">
-            {note}
-          </p>
-        )}
+        {note && <p className="mt-2 rounded-lg bg-warn-soft p-2 text-xs text-ink">{note}</p>}
 
-        <div className="mt-4 flex items-center justify-between">
-          <span className="text-sm font-medium">{setLabel}</span>
-          <span className="text-sm text-slate-500 dark:text-slate-400">
-            Target: {targetLabel}
-            {perSide ? ' per side' : ''}
-          </span>
-        </div>
-
-        <div className="mt-3">
+        <div className="mt-4">
+          <SectionLabel>{setLabel}</SectionLabel>
           {unit === 'sec' ? (
-            <HoldTimer running={holdRunning} onToggle={toggleHold} seconds={holdSeconds} />
+            <div className="mt-3">
+              <p className="text-sm text-muted">
+                Target: <span className="num">{target}</span> s{perSide ? ' per side' : ''}
+              </p>
+              <div className="mt-3">
+                <HoldRing seconds={holdSeconds} target={target} />
+              </div>
+            </div>
           ) : (
-            <NumberStepper value={value} onChange={setValue} min={0} max={999} />
+            <>
+              <div className="mt-1 flex items-baseline gap-2">
+                <span className="num text-5xl text-ink">{target}</span>
+                <span className="text-sm text-muted">
+                  {targetUnitLabel}
+                  {perSide ? ' per side' : ''}
+                </span>
+              </div>
+              <div className="mt-3">
+                <NumberStepper value={value} onChange={setValue} min={0} max={999} />
+              </div>
+            </>
           )}
         </div>
       </Card>
       <StickyBottomBar>
         <div className="flex flex-col gap-2">
-          <Button className="w-full" onClick={() => onLog(value)} disabled={saving}>
-            Log set
-          </Button>
+          {unit === 'sec' && holdRunning ? (
+            <Button size="xl" variant="danger" className="w-full" onClick={toggleHold}>
+              Stop hold
+            </Button>
+          ) : unit === 'sec' && holdSeconds === 0 ? (
+            <Button size="xl" className="w-full" onClick={toggleHold}>
+              Start hold
+            </Button>
+          ) : (
+            <Button size="xl" className="w-full" onClick={() => onLog(value)} disabled={saving}>
+              Log set
+            </Button>
+          )}
           {!assess && (
             <div className="flex gap-2">
-              <Button variant="secondary" className="flex-1" onClick={onTooHard} disabled={saving}>
-                Too hard → easier
+              <Button variant="secondary" size="xl" className="flex-1" onClick={onTooHard} disabled={saving}>
+                Too hard
               </Button>
-              <Button variant="secondary" className="flex-1" onClick={onTooEasy} disabled={saving}>
+              <Button variant="secondary" size="xl" className="flex-1" onClick={onTooEasy} disabled={saving}>
                 Too easy
               </Button>
             </div>

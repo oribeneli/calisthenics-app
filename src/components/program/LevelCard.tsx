@@ -1,5 +1,6 @@
 import { cn } from '../../lib/cn'
 import type { Level } from '../../data/types'
+import { SectionLabel } from '../ui/SectionLabel'
 import { formatScheme } from './format'
 
 export interface LevelCardProps {
@@ -20,36 +21,31 @@ export function LevelCard({ level, index, isCurrent, currentWeek, gatePassed, on
   return (
     <details
       open={isCurrent}
-      className={cn(
-        'group rounded-xl border p-3',
-        isCurrent
-          ? 'border-sky-400 bg-sky-50 dark:border-sky-700 dark:bg-sky-950/40'
-          : 'border-slate-200 dark:border-slate-800',
-      )}
+      className={cn('group border-l-[3px] pl-3', isCurrent ? 'border-accent' : 'border-transparent')}
     >
       <summary className="flex cursor-pointer list-none items-start justify-between gap-2 [&::-webkit-details-marker]:hidden">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="font-medium text-slate-900 dark:text-slate-100">
+            <span className="font-medium text-ink">
               #{index + 1} {level.name}
             </span>
             {isCurrent && (
-              <span className="rounded-full bg-sky-600 px-2 py-0.5 text-[11px] font-semibold text-white">
+              <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-semibold text-on-accent">
                 Current
               </span>
             )}
             {isHidden && (
-              <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+              <span className="rounded-full bg-warn-soft px-2 py-0.5 text-[11px] font-medium text-warn">
                 Unlocks in week {level.hiddenUntilWeek}
               </span>
             )}
             {level.gate && (
-              <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[11px] font-medium text-violet-800 dark:bg-violet-900/40 dark:text-violet-300">
+              <span className="rounded-full bg-inset px-2 py-0.5 text-[11px] font-medium text-body">
                 {gatePassed ? 'Gate confirmed' : 'Gated'}
               </span>
             )}
           </div>
-          <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">{formatScheme(level.scheme)}</p>
+          <p className="num mt-0.5 text-sm text-muted">{formatScheme(level.scheme)}</p>
         </div>
         <svg
           width="18"
@@ -60,19 +56,19 @@ export function LevelCard({ level, index, isCurrent, currentWeek, gatePassed, on
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="mt-1 shrink-0 text-slate-400 transition-transform group-open:rotate-180"
+          className="mt-1 shrink-0 text-muted transition-transform group-open:rotate-180"
           aria-hidden="true"
         >
           <path d="m6 9 6 6 6-6" />
         </svg>
       </summary>
 
-      <div className="mt-3 flex flex-col gap-3 border-t border-slate-200 pt-3 text-sm dark:border-slate-800">
-        <p className="text-slate-700 dark:text-slate-300">{level.setup}</p>
+      <div className="mt-3 flex flex-col gap-3 rounded-xl bg-inset p-3 text-sm">
+        <p className="text-body">{level.setup}</p>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Cues</p>
-          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-slate-700 dark:text-slate-300">
+          <SectionLabel className="text-xs">Cues</SectionLabel>
+          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-body">
             {level.cues.map((cue) => (
               <li key={cue}>{cue}</li>
             ))}
@@ -80,10 +76,8 @@ export function LevelCard({ level, index, isCurrent, currentWeek, gatePassed, on
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Common faults
-          </p>
-          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-slate-700 dark:text-slate-300">
+          <SectionLabel className="text-xs">Common faults</SectionLabel>
+          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-body">
             {level.faults.map((fault) => (
               <li key={fault}>{fault}</li>
             ))}
@@ -91,21 +85,21 @@ export function LevelCard({ level, index, isCurrent, currentWeek, gatePassed, on
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Advance</p>
-          <p className="text-slate-700 dark:text-slate-300">{level.advance}</p>
+          <SectionLabel className="text-xs">Advance</SectionLabel>
+          <p className="text-body">{level.advance}</p>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Regress</p>
-          <p className="text-slate-700 dark:text-slate-300">{level.regress}</p>
+          <SectionLabel className="text-xs">Regress</SectionLabel>
+          <p className="text-body">{level.regress}</p>
         </div>
 
         {level.gate && (
-          <label className="flex min-h-11 items-center gap-2 rounded-lg bg-violet-50 px-2 text-slate-800 dark:bg-violet-950/30 dark:text-slate-200">
+          <label className="flex min-h-12 items-center gap-2 rounded-lg bg-raised px-2 text-ink">
             <input
               type="checkbox"
               checked={gatePassed}
               onChange={() => onToggleGate(level.gate!.key)}
-              className="h-5 w-5 shrink-0 accent-sky-600"
+              className="h-5 w-5 shrink-0 accent-accent"
             />
             <span className="text-sm">{level.gate.label}</span>
           </label>
@@ -116,11 +110,9 @@ export function LevelCard({ level, index, isCurrent, currentWeek, gatePassed, on
           onClick={onSetLevel}
           disabled={!canSet}
           className={cn(
-            'min-h-11 rounded-xl px-4 text-sm font-medium transition-colors',
+            'pressable min-h-12 rounded-xl px-4 text-sm font-medium',
             'disabled:cursor-not-allowed disabled:opacity-50',
-            isCurrent
-              ? 'bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
-              : 'bg-sky-600 text-white hover:bg-sky-500 active:bg-sky-700',
+            isCurrent ? 'bg-line text-muted' : 'bg-accent text-on-accent hover:brightness-105',
           )}
         >
           {isCurrent ? "This is my level" : 'Set as my level'}

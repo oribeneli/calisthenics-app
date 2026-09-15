@@ -262,8 +262,8 @@ export function SessionPlayer({ session, onSessionFinished }: { session: Session
             <Button variant="ghost" size="md" onClick={() => setEndEarlyOpen(true)}>
               End early
             </Button>
-            <Button variant="ghost" size="md" className="text-red-600 dark:text-red-400" onClick={() => setHardStopOpen(true)}>
-              Stop — unwell
+            <Button variant="ghost" size="md" className="text-danger" onClick={() => setHardStopOpen(true)}>
+              Stop, unwell
             </Button>
           </div>
         </div>

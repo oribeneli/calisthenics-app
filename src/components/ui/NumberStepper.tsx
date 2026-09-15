@@ -25,24 +25,24 @@ export function NumberStepper({
 
   return (
     <div className={cn('flex flex-col gap-1', className)}>
-      {label && <span className="text-sm text-slate-600 dark:text-slate-400">{label}</span>}
+      {label && <span className="text-sm text-muted">{label}</span>}
       <div className="flex items-center gap-3">
         <button
           type="button"
           aria-label="Decrease"
           onClick={decrement}
           disabled={value <= min}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-200 text-2xl font-bold text-slate-900 disabled:opacity-40 dark:bg-slate-800 dark:text-slate-100"
+          className="pressable flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-inset text-2xl font-bold text-ink disabled:opacity-40"
         >
           −
         </button>
-        <span className="min-w-12 text-center text-2xl font-semibold tabular-nums">{value}</span>
+        <span className="num min-w-12 text-center text-[30px]">{value}</span>
         <button
           type="button"
           aria-label="Increase"
           onClick={increment}
           disabled={value >= max}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-200 text-2xl font-bold text-slate-900 disabled:opacity-40 dark:bg-slate-800 dark:text-slate-100"
+          className="pressable flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-inset text-2xl font-bold text-ink disabled:opacity-40"
         >
           +
         </button>

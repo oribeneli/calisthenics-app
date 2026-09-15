@@ -22,7 +22,7 @@ export function Slider1to5({
 }: Slider1to5Props) {
   return (
     <div className={cn('flex flex-col gap-2', className)}>
-      {label && <span className="text-sm text-slate-600 dark:text-slate-400">{label}</span>}
+      {label && <span className="text-sm text-body">{label}</span>}
       <div className="flex gap-2">
         {LEVELS.map((level) => (
           <button
@@ -32,10 +32,8 @@ export function Slider1to5({
             aria-pressed={value === level}
             onClick={() => onChange(level)}
             className={cn(
-              'flex h-12 flex-1 items-center justify-center rounded-xl text-lg font-semibold transition-colors',
-              value === level
-                ? 'bg-sky-600 text-white'
-                : 'bg-slate-200 text-slate-900 dark:bg-slate-800 dark:text-slate-100',
+              'pressable num flex h-12 flex-1 items-center justify-center rounded-xl text-lg',
+              value === level ? 'bg-accent text-on-accent' : 'bg-inset text-ink',
             )}
           >
             {level}
@@ -43,7 +41,7 @@ export function Slider1to5({
         ))}
       </div>
       {(lowLabel || highLabel) && (
-        <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex justify-between text-xs text-muted">
           <span>{lowLabel}</span>
           <span>{highLabel}</span>
         </div>

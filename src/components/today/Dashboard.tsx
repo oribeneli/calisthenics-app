@@ -4,6 +4,8 @@ import { Card } from '../ui/Card'
 import { ExercisePreviewCard } from './ExercisePreviewCard'
 import { StickyBottomBar } from './StickyBottomBar'
 
+const TODAY_LABEL = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' })
+
 /** State E: a train / assessment / minimum session that hasn't been started yet. */
 export function Dashboard({
   plan,
@@ -21,37 +23,32 @@ export function Dashboard({
   return (
     <>
       <header>
-        <p className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Week {plan.weekIndex + 1}
+        <p className="text-sm text-muted">
+          Week <span className="num">{plan.weekIndex + 1}</span> · {TODAY_LABEL}
         </p>
-        <h1 className="text-xl font-semibold">Today's session</h1>
+        <h1 className="text-xl font-semibold text-ink">Today's session</h1>
       </header>
 
       <div className="mt-3 flex flex-col gap-3">
         {plan.kind === 'assessment' && (
-          <Card className="border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900">
-            <h2 className="text-sm font-semibold">Finding your level</h2>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-              For each pattern, start at level 1 with one easy set. If it felt easy, try the next level up — you'll
+          <Card variant="inset">
+            <h2 className="text-sm font-semibold text-ink">Finding your level</h2>
+            <p className="mt-1 text-sm text-body">
+              For each pattern, start at level 1 with one easy set. If it felt easy, try the next level up, you'll
               land wherever it first feels like real work.
             </p>
           </Card>
         )}
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-            Why today looks like this
-          </p>
-          <p className="mt-1 rounded-2xl border border-sky-200 bg-sky-50 p-4 text-sm text-slate-700 dark:border-sky-900 dark:bg-sky-950/40 dark:text-slate-200">
-            {plan.explanation}
-          </p>
-        </div>
+        <Card variant="inset" className="border-l-[3px] border-accent">
+          <p className="text-sm text-body">{plan.explanation}</p>
+        </Card>
 
-        <div className="flex flex-col gap-2">
+        <Card variant="plain" className="divide-y divide-line rounded-2xl border border-line bg-raised">
           {plan.exercises.map((ex) => (
             <ExercisePreviewCard key={ex.ladderId} exercise={ex} />
           ))}
-        </div>
+        </Card>
 
         <Button variant="secondary" onClick={onToggleMinimum} aria-pressed={wantMinimum}>
           {wantMinimum ? 'Full version' : 'Short version (5 min)'}
@@ -59,7 +56,7 @@ export function Dashboard({
       </div>
 
       <StickyBottomBar>
-        <Button className="w-full" onClick={onStart} disabled={starting}>
+        <Button size="xl" className="w-full" onClick={onStart} disabled={starting}>
           Start session
         </Button>
       </StickyBottomBar>

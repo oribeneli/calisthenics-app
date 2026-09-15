@@ -10,9 +10,9 @@ interface ToastItem {
 }
 
 const VARIANT_CLASSES: Record<ToastVariant, string> = {
-  info: 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900',
-  success: 'bg-emerald-600 text-white',
-  error: 'bg-red-600 text-white',
+  info: 'bg-ink text-ground',
+  success: 'bg-good-soft text-good',
+  error: 'bg-danger-soft text-danger',
 }
 
 let nextId = 1
